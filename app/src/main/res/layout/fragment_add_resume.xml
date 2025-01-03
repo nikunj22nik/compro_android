@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.mainFragments.professional.addResumeFragment.AddResumeFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_90sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textCreateYourProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_10ssp"
+
+            android:text="@string/_6_8_create_your_profile"
+            android:textColor="@color/gray2" />
+
+        <ImageView
+            android:id="@+id/imageClock"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/textCreateYourProfile"
+            android:src="@drawable/ic_clock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageClock"
+            android:fontFamily="@font/roboto"
+            android:text="@string/_5_10_min"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/gray2" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textYourself"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/how_would_you_like_to_tell_us_nabout_yourself"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+    <TextView
+        android:id="@+id/textAllFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/we_need_to_get_a_sense_of_your_education_experience_and_skills_it_s_quickest_to_import_your_information_you_can_edit_it_before_your_profile_goes_live"
+        android:textColor="#484848"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintTop_toBottomOf="@id/textYourself" />
+
+
+    <TextView
+        android:id="@+id/textUploadTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/upload_your_resume1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAllFields" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clUploadResume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/upload_resume_bg"
+        app:layout_constraintTop_toBottomOf="@id/textUploadTitle">
+
+
+
+
+        <ImageView
+            android:id="@+id/imageUploadIcon"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_upload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textUpload"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/upload_your_resume2"
+            android:textColor="#515A81"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toBottomOf="@+id/clUploadResume"
+   app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:id="@+id/imageViewPDf"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageCancel"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:src="@drawable/ic_cancel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/back"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/roboto"
+        android:paddingVertical="@dimen/_3sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_11sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clImage"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/next"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/lato"
+        android:paddingVertical="@dimen/_5sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clImage"/>
+
+    <TextView
+        android:id="@+id/textSkipForNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_for_now"
+        android:fontFamily="@font/roboto"
+        android:textColor="#595959"
+        app:layout_constraintTop_toTopOf="@id/textNextButton"
+        app:layout_constraintEnd_toStartOf="@id/textNextButton"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/textNextButton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

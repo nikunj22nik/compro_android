@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_20sdp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Professional Experience Section -->
+    <TextView
+        android:id="@+id/textExperienceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/professional_experience"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Icon -->
+    <ImageView
+        android:id="@+id/imageExperienceEdit"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:contentDescription="@string/edit_experience"
+        android:src="@drawable/ic_edit"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textExperienceTitle">
+
+
+        <TextView
+            android:id="@+id/textCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/company"
+            android:textColor="#3C3C3C"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textCompanyName"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:background="#f5f5f5"
+            android:fontFamily="@font/roboto"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/head_field_solution_pvt1"
+            android:textColor="#555555"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCompany" />
+
+
+        <TextView
+            android:id="@+id/textLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/location1"
+            android:textColor="#3C3C3C"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textCompanyName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textLocationName"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:background="#f5f5f5"
+            android:fontFamily="@font/roboto"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/noida"
+            android:textColor="#555555"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toEndOf="@+id/textCompanyName"
+            app:layout_constraintTop_toBottomOf="@+id/textLocation" />
+
+
+        <TextView
+            android:id="@+id/textJobTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/title"
+            android:textColor="#3C3C3C"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textCompanyName" />
+
+        <TextView
+            android:id="@+id/textJobTitleValue"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:background="#f5f5f5"
+            android:fontFamily="@font/roboto"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/front_end_developer1"
+            android:textColor="#555555"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textJobTitle" />
+
+
+        <TextView
+            android:id="@+id/textStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/start_date"
+            android:textColor="#3C3C3C"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textJobTitleValue" />
+
+        <TextView
+            android:id="@+id/textStartDateValue"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:background="#f5f5f5"
+            android:fontFamily="@font/roboto"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/_2019_05_291"
+            android:textColor="#555555"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textStartDate" />
+
+
+        <TextView
+            android:id="@+id/textEndDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/end_date1"
+            android:textColor="#3C3C3C"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textStartDateValue"
+            app:layout_constraintTop_toBottomOf="@+id/textJobTitleValue" />
+
+        <TextView
+            android:id="@+id/textEndDateValue"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:background="#f5f5f5"
+            android:fontFamily="@font/roboto"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/_2024_08_221"
+            android:textColor="#555555"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toEndOf="@+id/textStartDateValue"
+            app:layout_constraintTop_toBottomOf="@+id/textEndDateLabel" />
+
+
+        <TextView
+            android:id="@+id/textCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/country"
+            android:textColor="#3C3C3C"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textEndDateValue" />
+
+        <TextView
+            android:id="@+id/textCountryValue"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:background="#f5f5f5"
+            android:fontFamily="@font/roboto"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/india"
+            android:textColor="#555555"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

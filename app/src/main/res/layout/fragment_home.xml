@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.mainFragments.both.homeFragment.HomeFragment">
+    
+    <ImageView
+        android:id="@+id/imageComproIcon"
+        android:layout_width="@dimen/_115sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/compro_logo_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_30sdp"
+        tools:ignore="ContentDescription" />
+
+
+
+
+
+    <EditText
+        android:id="@+id/etSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:drawableStart="@drawable/search_icon"
+        android:background="@drawable/ic_search_bar_shape"
+        android:paddingStart="@dimen/_25sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:hint="@string/search_for_services"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="#545454"
+        android:textColorHint="#545454"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:drawablePadding="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imageComproIcon"
+        tools:ignore="TextFields" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHomePage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/layout_home_page"
+        android:layout_marginVertical="@dimen/_10sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/etSearchBar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>

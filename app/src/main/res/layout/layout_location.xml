@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/clLocation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/textLocationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/location"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Edit Icon -->
+        <ImageView
+            android:id="@+id/imageLocationEdit"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:contentDescription="@string/edit_location"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/textLocationTitle">
+
+
+            <TextView
+                android:id="@+id/textProfessionalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/title"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textProfessionalTitleName"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/jiana_nx_electric_amp_hardware"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textProfessionalTitle" />
+
+
+            <TextView
+                android:id="@+id/textDateBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/date_of_birth"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textProfessionalTitleName" />
+
+            <TextView
+                android:id="@+id/textDateBirthName"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/savitri_public_school"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDateBirth" />
+
+
+            <TextView
+                android:id="@+id/textStreet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/street_address"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textDateBirthName"
+                app:layout_constraintTop_toBottomOf="@+id/textProfessionalTitleName" />
+
+            <TextView
+                android:id="@+id/textStreetName"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/sangam_vihar_new_delhi"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@+id/textDateBirthName"
+                app:layout_constraintTop_toBottomOf="@+id/textStreet" />
+
+
+            <TextView
+                android:id="@+id/textApt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/apt_suite"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDateBirthName" />
+
+            <TextView
+                android:id="@+id/textAptName"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/it"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textApt" />
+
+
+            <TextView
+                android:id="@+id/textCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/city"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textAptName"
+                app:layout_constraintTop_toBottomOf="@+id/textDateBirthName" />
+
+            <TextView
+                android:id="@+id/textCityName"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/new_delhi"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@+id/textAptName"
+                app:layout_constraintTop_toBottomOf="@+id/textCity" />
+
+
+            <TextView
+                android:id="@+id/textState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/state_province"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textCityName" />
+
+            <TextView
+                android:id="@+id/textStateName"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/delhi"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textState" />
+
+
+            <TextView
+                android:id="@+id/textPostal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/zip_postal_code"
+                android:textColor="#3C3C3C"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textStateName"
+                app:layout_constraintTop_toBottomOf="@+id/textCityName" />
+
+            <TextView
+                android:id="@+id/textPostalName"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:background="#f5f5f5"
+                android:fontFamily="@font/roboto"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/_2024_08_23"
+                android:textColor="#555555"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@+id/textStateName"
+                app:layout_constraintTop_toBottomOf="@+id/textPostal" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

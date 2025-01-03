@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    android:layout_marginVertical="@dimen/_5sdp"
+    app:cardElevation="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/imageGallery"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_education"
+            android:layout_marginBottom="@dimen/_17sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/textEducationTitle"
+            android:layout_width="@dimen/_150sdp"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/governors_state_university"
+            android:textColor="@color/deepNavyBlue"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toEndOf="@+id/imageGallery"
+            app:layout_constraintTop_toTopOf="@id/imageGallery" />
+
+
+        <TextView
+            android:id="@+id/textInstituteName"
+            android:layout_width="@dimen/_150sdp"
+            android:maxLines="1"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/roboto"
+            android:textColor="#555555"
+            android:layout_height="wrap_content"
+            android:text="@string/bachelor_of_arts_ba_computer"
+            app:layout_constraintStart_toEndOf="@+id/imageGallery"
+            app:layout_constraintTop_toBottomOf="@id/textEducationTitle" />
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="@dimen/_150sdp"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textColor="#555555"
+            android:text="@string/science_2011_2029_expected"
+            app:layout_constraintTop_toBottomOf="@id/textInstituteName"
+            app:layout_constraintStart_toEndOf="@+id/imageGallery"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:textSize="@dimen/_10ssp"/>
+
+        <TextView
+            android:id="@+id/textDis"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="wrap_content"
+            android:text="@string/ever_since_our_inception_we_have_assisted_our_partners_fulfil_recruitment_goals_for_their_clients_speedily"
+            app:layout_constraintTop_toBottomOf="@id/textDate"
+            android:textColor="#676767"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintStart_toEndOf="@+id/imageGallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textSize="@dimen/_10ssp"/>
+
+        <ImageView
+            android:id="@+id/imageEdit"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_three_dots"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageGallery"
+            android:layout_marginEnd="@dimen/_10sdp"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_106sdp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textMembership"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_9sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/memberships"
+        android:layout_marginStart="@dimen/_22sdp"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/dollar_sign_icon" />
+
+    <View
+        android:id="@+id/viewMember"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+
+    <TextView
+        android:id="@+id/textContactInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/contact_info"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/contact_info_icon" />
+
+    <View
+        android:id="@+id/viewContactInfo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+    <TextView
+        android:id="@+id/textMyProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_13sdp"
+        android:fontFamily="@font/lato"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:text="@string/my_profile"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/my_profile_icon" />
+
+    <View
+        android:id="@+id/viewMyProfile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+    <TextView
+        android:id="@+id/textProfileVisibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/lato"
+        android:layout_marginStart="@dimen/_22sdp"
+        android:text="@string/profile_visibility"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/visibility_icon" />
+
+    <View
+        android:id="@+id/viewProfileVisibility"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+    <TextView
+        android:id="@+id/textPasswordSecurity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_13sdp"
+        android:fontFamily="@font/lato"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:text="@string/password_amp_security"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/lock_icon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+    <TextView
+        android:id="@+id/textTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_9sdp"
+        android:fontFamily="@font/lato"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:text="Transaction"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/icon_transaction_nav" />
+
+    <View
+        android:id="@+id/viewTransition"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+
+    <TextView
+        android:id="@+id/textDeleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_16sdp"
+        android:fontFamily="@font/lato"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:text="@string/delete_account"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/logout_icon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+
+    <TextView
+        android:id="@+id/textLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_16sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/log_out"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/logout_icon" />
+
+</LinearLayout>

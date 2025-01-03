@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.mainFragments.professional.createProfileFragment.CreateProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/rlHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textCreateYourProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="@string/_7_8_create_your_profile"
+                    android:textColor="@color/gray2" />
+
+                <ImageView
+                    android:id="@+id/imageClock"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/textCreateYourProfile"
+                    android:src="@drawable/ic_clock"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageClock"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="@dimen/_10ssp"
+                    android:text="@string/_5_10_min"
+                    android:textColor="@color/gray2" />
+
+
+            </RelativeLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageProfileIcon"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/ic_profile_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rlHeader" />
+
+
+            <RelativeLayout
+                android:id="@+id/rlUploadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/upload_line_bg"
+                android:paddingHorizontal="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageProfileIcon">
+
+                <ImageView
+                    android:id="@+id/imagePlus"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_plus"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="#2E3255"
+                    android:layout_toEndOf="@id/imagePlus"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="@string/upload_photo" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/textProfessionalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/professional_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rlUploadButton" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfessionalTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textProfessionalTitle">
+
+                <EditText
+                    android:id="@+id/etProfessionalTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/ex_doctor"
+                    android:textSize="@dimen/_10ssp"
+                    android:inputType="text"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textDateBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/date_of_birth"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvProfessionalTitle" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvDateBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textDateBirth">
+
+                <TextView
+                    android:id="@+id/textDOB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/_10_12_24"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColorHint="#828282"
+                    tools:ignore="TextFields,TextContrastCheck" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textStreetAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/street_address"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvDateBirth" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvStreetAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textStreetAddress">
+
+                <EditText
+                    android:id="@+id/etStreetAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@null"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/enter_street_address"
+                    android:inputType="text"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textAptSuite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/apt_suite"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvStreetAddress" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvAptSuite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textAptSuite">
+
+
+                <EditText
+                    android:id="@+id/etAptSuite"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@null"
+                    android:textSize="@dimen/_9ssp"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/ex_london"
+                    android:inputType="text"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/city"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@+id/cvAptSuite"
+
+                app:layout_constraintTop_toBottomOf="@id/cvStreetAddress" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintStart_toEndOf="@+id/cvAptSuite"
+                app:layout_constraintTop_toBottomOf="@+id/textCity">
+
+                <EditText
+                    android:id="@+id/etCity"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@null"
+
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/ex_usa"
+                    android:inputType="text"
+                    android:textSize="@dimen/_9ssp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textStateProvince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/state_province"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvAptSuite" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvStateProvince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textStateProvince">
+
+
+                <EditText
+                    android:id="@+id/etStateProvince"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@null"
+                    android:textSize="@dimen/_9ssp"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/enter_state_province"
+                    android:inputType="text"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textZIPPostal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/zip_postal_code"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@+id/cvStateProvince"
+
+                app:layout_constraintTop_toBottomOf="@id/cvCity" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvZIPPostal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_7sdp"
+                app:layout_constraintStart_toEndOf="@+id/cvStateProvince"
+                app:layout_constraintTop_toBottomOf="@+id/textZIPPostal">
+
+                <EditText
+                    android:id="@+id/etZIPPostal"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/enter_zip_postal_code"
+                    android:inputType="text"
+                    android:textSize="@dimen/_9ssp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck,TouchTargetSizeCheck" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_gradiant_button_bg"
+                android:text="@string/back"
+                android:textSize="@dimen/_13ssp"
+                android:fontFamily="@font/roboto"
+                android:paddingVertical="@dimen/_3sdp"
+                android:textColor="@color/white"
+                android:paddingHorizontal="@dimen/_11sdp"
+                android:layout_marginVertical="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvStateProvince"
+                />
+
+
+
+            <TextView
+                android:id="@+id/textNextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_gradiant_button_bg"
+                android:text="@string/next"
+                android:fontFamily="@font/lato"
+                android:textSize="@dimen/_13ssp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:textColor="@color/white"
+                android:paddingHorizontal="@dimen/_35sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvStateProvince"/>
+
+            <TextView
+                android:id="@+id/textSkipForNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skip_for_now"
+                android:textColor="#595959"
+                android:fontFamily="@font/roboto"
+                app:layout_constraintTop_toTopOf="@id/textNextButton"
+                app:layout_constraintEnd_toStartOf="@id/textNextButton"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="@id/textNextButton"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

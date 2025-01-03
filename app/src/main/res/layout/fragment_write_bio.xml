@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".fragment.mainFragments.professional.writeBioFragment.WriteBioFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textCreateYourProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_10ssp"
+            android:text="@string/_8_8_create_your_profile"
+            android:textColor="@color/gray2" />
+
+        <ImageView
+            android:id="@+id/imageClock"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/textCreateYourProfile"
+            android:src="@drawable/ic_clock"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageClock"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_10ssp"
+            android:text="@string/_5_10_min"
+            android:textColor="@color/gray2" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/great_now_write_a_bio_to_tell_the_nworld_about_yourself"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+    <TextView
+        android:id="@+id/textAllFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fontFamily="@font/roboto"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="@string/help_people_get_to_know_you_at_a_glance_what_work_do_you_do_best_tell_them_clearly_using_paragraphs_or_bullet_points_you_can_always_edit_later_just_make_sure_you_proofread_now"
+        android:textColor="#484848"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_10sdp"
+        android:background="@color/white"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textAllFields">
+
+
+        <EditText
+            android:id="@+id/etBio"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_68sdp"
+            android:inputType="textMultiLine"
+            android:maxLines="7"
+            android:background="@null"
+            android:gravity="start"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/lato"
+            android:textColor="#000"
+            android:textColorHint="#828282"
+            android:layout_margin="@dimen/_10sdp"
+            android:hint="@string/enter_your_top_skills_experiences_and_interests_this_is_one_of_the_first_things_clients_will_see_on_your_profile"
+            tools:ignore="Autofill" />
+
+
+    </androidx.cardview.widget.CardView>
+    <!-- TextView to display remaining characters for Project Title -->
+    <TextView
+        android:id="@+id/tvYourRoleCharCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/_100_characters_left"
+        android:textColor="#585858"
+        app:layout_constraintEnd_toEndOf="@id/cvBio"
+        app:layout_constraintTop_toBottomOf="@id/cvBio" />
+
+
+    <TextView
+        android:id="@+id/textBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/back"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/roboto"
+        android:paddingVertical="@dimen/_3sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_11sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYourRoleCharCount"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/next"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/lato"
+        android:paddingVertical="@dimen/_5sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYourRoleCharCount"/>
+
+    <TextView
+        android:id="@+id/textSkipForNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_for_now"
+        android:fontFamily="@font/roboto"
+        android:textColor="#595959"
+        app:layout_constraintTop_toTopOf="@id/textNextButton"
+        app:layout_constraintEnd_toStartOf="@id/textNextButton"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/textNextButton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

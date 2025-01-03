@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.mainFragments.both.anotherUserProfile.AnotherUserProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textProfession"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/dentist_doctor"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/rectangle_bg"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_3sdp"
+                android:text="@string/contact"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageProfilePicture"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:src="@drawable/image_portfolio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textProfession" />
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/priyanka_chawla"
+                android:textColor="#5A5A5A"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toEndOf="@id/imageProfilePicture"
+                app:layout_constraintTop_toTopOf="@id/imageProfilePicture" />
+
+            <!-- Phone number -->
+            <TextView
+                android:id="@+id/textProfilePhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/_9999_999_999"
+                android:textColor="#808080"
+                android:textSize="@dimen/_11ssp"
+                app:drawableStartCompat="@drawable/ic_phone_icon"
+                app:layout_constraintStart_toEndOf="@id/imageProfilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/textName"
+                tools:ignore="TextContrastCheck" />
+
+            <!-- Email -->
+            <TextView
+                android:id="@+id/textProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/vinod_glocalassist_com"
+                android:textColor="#808080"
+                android:textSize="@dimen/_11ssp"
+                app:drawableLeftCompat="@drawable/ic_email"
+                app:layout_constraintStart_toEndOf="@id/imageProfilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/textProfilePhone"
+                tools:ignore="TextContrastCheck" />
+
+            <!-- Location -->
+            <TextView
+                android:id="@+id/profile_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/canada"
+                android:textColor="#808080"
+                android:textSize="@dimen/_11ssp"
+                app:drawableStartCompat="@drawable/ic_location"
+                app:layout_constraintStart_toEndOf="@id/imageProfilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/textProfileEmail"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textRatingNumber"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/rectangle_bg"
+                android:backgroundTint="#358E39"
+                android:gravity="center"
+                android:text="@string/_0"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_location"
+                tools:ignore="TextContrastCheck" />
+
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1"
+                app:layout_constraintBottom_toBottomOf="@+id/textRatingNumber"
+                app:layout_constraintStart_toEndOf="@id/textRatingNumber"
+                app:layout_constraintTop_toTopOf="@+id/textRatingNumber" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/ratings"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/textRatingNumber"
+                app:layout_constraintStart_toEndOf="@id/ratingBar"
+                app:layout_constraintTop_toTopOf="@id/ratingBar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewSkill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/textRatingNumber" />
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/lato"
+                android:text="@string/contrary_to_popular_belief_lorem_ipsum_is_not_simply_random_text_it_has_roots_in_a_piece_of_classical_latin_literature_from_45_bc"
+                android:textColor="#5A5A5A"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintTop_toBottomOf="@id/recyclerViewSkill" />
+
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:weightSum="6"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textDescription">
+
+                <LinearLayout
+                    android:id="@+id/llExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/experience1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <View
+                        android:id="@+id/viewExperience"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_1ssp"
+
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="#FC8C1B" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llEducation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/education"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <View
+                        android:id="@+id/viewEducation"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_1ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="#FC8C1B"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <View
+                        android:id="@+id/viewLocation"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_1ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="#FC8C1B"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/llResume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resume"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <View
+                        android:id="@+id/viewResume"
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_1ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="#FC8C1B"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPortfolio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/portfolio"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <View
+                        android:id="@+id/viewPortfolio"
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_1ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="#FC8C1B"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/review"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <View
+                        android:id="@+id/viewReview"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_1ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="#FC8C1B"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="#B3B3B3"
+                app:layout_constraintTop_toBottomOf="@id/ll1" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:spanCount="1"
+                tools:listitem="@layout/layout_professional_experience" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewEducation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:maxHeight="@dimen/_210sdp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:spanCount="1"
+                tools:listitem="@layout/layout_education_preview" />
+
+            <include
+                android:id="@+id/includedLocationLayout"
+                layout="@layout/layout_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_15sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:spanCount="1" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPortfolio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+
+                <!-- Professional Experience Section -->
+                <TextView
+                    android:id="@+id/textPortfolioTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/portfolio"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewPortfolio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/textPortfolioTitle"
+                    app:spanCount="2"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/layout_portfolio" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clResume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <TextView
+                    android:id="@+id/textResumeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/resume"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/blue_gradiant_button_bg"
+                    android:backgroundTint="#E3E3E3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_13sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="@string/download"
+                    app:drawableStartCompat="@drawable/ic_download_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textResumeTitle" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+
+                <TextView
+                    android:id="@+id/textLeaveTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/leave_review"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textLeave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/leave_review_takes_it_to_the_next_level"
+                    android:textColor="#464646"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textLeaveTitle" />
+
+
+                <ImageView
+                    android:id="@+id/imageEmoaji"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:src="@drawable/heart_eyes_emoji"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textLeave"
+                    tools:ignore="ContentDescription" />
+
+                <RatingBar
+                    android:id="@+id/ratingBarReview"
+                    style="@style/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:isIndicator="false"
+                    android:numStars="5"
+                    android:rating="0"
+                    android:stepSize="1"
+                    app:layout_constraintEnd_toEndOf="@+id/imageEmoaji"
+                    app:layout_constraintStart_toStartOf="@+id/imageEmoaji"
+                    app:layout_constraintTop_toBottomOf="@+id/imageEmoaji" />
+
+
+
+                <EditText
+                    android:id="@+id/etTellUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/review_rectangle_bg"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingBarReview"
+                    android:hint="@string/tell_us_a_few_words"
+                    android:textSize="@dimen/_8ssp"
+                    android:gravity="start"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_40sdp"
+                    android:padding="@dimen/_9sdp"
+                    tools:ignore="Autofill,TextFields" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:text="@string/submit_review"
+                    android:background="@drawable/rectangle_bg"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    android:paddingHorizontal="@dimen/_5ssp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_42sdp"
+                    app:layout_constraintTop_toBottomOf="@id/etTellUs"/>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

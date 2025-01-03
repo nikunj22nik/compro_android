@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.authfragment.userTypeSelectionFragment.UserTypeSelectionFragment">
+
+
+    <ImageView
+        android:id="@+id/imageBackButton"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/_10sdp"
+        tools:ignore="ContentDescription" />
+
+
+    <TextView
+        android:id="@+id/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/join_as_a_user_or_professional"
+        android:textAlignment="center"
+        android:textColor="#4D4D4D"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:src="@drawable/login_line"
+        app:layout_constraintEnd_toEndOf="@id/textLogin"
+        app:layout_constraintStart_toStartOf="@+id/textLogin"
+        app:layout_constraintTop_toBottomOf="@id/textLogin"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imageLine"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/radio_button_selector"
+    >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageProfessional"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:src="@drawable/ic_professional"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/textProfessional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/i_m_a_professional_hiring_for_n_a_project"
+                android:textColor="#696969"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:textSize="@dimen/_15ssp"
+                android:fontFamily="@font/lato"
+                android:layout_below="@+id/imageProfessional"
+                android:layout_centerHorizontal="true"
+                />
+
+            <RadioButton
+                android:id="@+id/radioProfessional"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_12sdp"
+                android:background="@drawable/radio_selector"
+                android:button="@null"
+                android:checked="false"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardProfessional"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@+id/cardProfessional"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/radio_button_selector">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageUser"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:src="@drawable/ic_user"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/textUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/i_m_a_user_looking_for_work"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:textColor="#696969"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:textSize="@dimen/_15ssp"
+                android:fontFamily="@font/lato"
+                android:layout_below="@+id/imageUser"
+                android:layout_centerHorizontal="true"/>
+
+            <RadioButton
+                android:id="@+id/radioUser"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_12sdp"
+                android:background="@drawable/radio_selector"
+                android:button="@null"
+                android:checked="false"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlCreateAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_28sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/blue_gradiant_button_bg"
+        app:layout_constraintTop_toBottomOf="@+id/cardUser"
+        >
+
+
+        <TextView
+            android:id="@+id/textCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:text="@string/create_account"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/arrow_right_icon"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

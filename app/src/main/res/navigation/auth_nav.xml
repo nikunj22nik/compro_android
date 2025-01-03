@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav"
+  app:startDestination="@id/splashFragment"
+  >
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.yesitlab.compro.fragment.splashFragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.welcomeFragment.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.loginFragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/userTypeSelectionFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.userTypeSelectionFragment.UserTypeSelectionFragment"
+        android:label="fragment_user_type_selection"
+        tools:layout="@layout/fragment_user_type_selection" />
+    <fragment
+        android:id="@+id/createAnAccountFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.createAnAccount.CreateAnAccountFragment"
+        android:label="fragment_create_an_account"
+        tools:layout="@layout/fragment_create_an_account" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.forgetPasswordFragment.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/pleaseVerifyFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.pleaseVerifyFragment.PleaseVerifyFragment"
+        android:label="fragment_please_verify"
+        tools:layout="@layout/fragment_please_verify" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.changePasswordFragment.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/accountVerifiedFragment"
+        android:name="com.yesitlab.compro.fragment.authfragment.accountVerified.AccountVerifiedFragment"
+        android:label="fragment_account_verified"
+        tools:layout="@layout/fragment_account_verified" />
+
+</navigation>

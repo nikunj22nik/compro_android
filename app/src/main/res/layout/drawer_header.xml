@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_106sdp"
+    android:background="@color/white"
+    android:gravity="bottom"
+    android:paddingTop="@dimen/_15sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!-- Custom Donut Progress Bar -->
+    <com.yesitlab.compro.DonutProgressBar
+        android:id="@+id/donutProgressBar"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageProfilePicture"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_17sdp"
+        android:src="@drawable/your_image"
+
+        app:layout_constraintTop_toTopOf="@id/donutProgressBar"
+        app:layout_constraintBottom_toBottomOf="@id/donutProgressBar"
+        app:layout_constraintStart_toStartOf="@id/donutProgressBar"
+        app:layout_constraintEnd_toEndOf="@id/donutProgressBar"/>
+
+
+    <!-- Progress Percentage Text -->
+    <TextView
+        android:id="@+id/progressPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0"
+        android:textSize="@dimen/_12ssp"
+        android:background="@color/white"
+        android:textColor="@color/progressColor"
+        app:layout_constraintBottom_toBottomOf="@id/donutProgressBar"
+        app:layout_constraintStart_toStartOf="@id/donutProgressBar"
+        app:layout_constraintEnd_toEndOf="@id/donutProgressBar" />
+
+    <TextView
+        android:id="@+id/textUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rohit_jasiwal"
+        app:layout_constraintTop_toTopOf="@+id/donutProgressBar"
+        app:layout_constraintStart_toEndOf="@+id/donutProgressBar"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/textProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/professional"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintTop_toBottomOf="@+id/textUserName"
+        app:layout_constraintStart_toEndOf="@+id/donutProgressBar"
+        android:fontFamily="@font/roboto"
+        android:textColor="#3E3E3E"/>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

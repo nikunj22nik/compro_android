@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_white_layout"
+    android:paddingBottom="@dimen/_50sdp">
+
+    <View
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="#7A7A7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageCross"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/image_cross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textAddPortfolio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/add_a_new_portfolio_nprojects"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAllFields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/all_fields_are_required_unless_otherwise_nindicated"
+        android:textColor="#6F6F6F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAddPortfolio" />
+
+
+    <TextView
+        android:id="@+id/textProjectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/project_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAllFields" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvProjectTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textProjectTitle">
+
+        <EditText
+            android:id="@+id/etProjectTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/enter_a_brief_but_descriptive_title"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="70"
+            android:maxLines="1"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextContrastCheck" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- TextView to display remaining characters for Project Title -->
+    <TextView
+        android:id="@+id/tvProjectTitleCharCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/_70_characters_left"
+        android:textColor="#585858"
+        app:layout_constraintEnd_toEndOf="@id/cvProjectTitle"
+        app:layout_constraintTop_toBottomOf="@id/cvProjectTitle" />
+
+
+    <TextView
+        android:id="@+id/textYourRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/your_role"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProjectTitleCharCount" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/optional"
+        android:textColor="#777777"
+        app:layout_constraintStart_toEndOf="@+id/textYourRole"
+        app:layout_constraintTop_toBottomOf="@id/tvProjectTitleCharCount"
+        tools:ignore="TextContrastCheck" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvYourRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textYourRole">
+
+        <EditText
+            android:id="@+id/etYourRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/e_g_front_end_engineer_or_marketing_analyst"
+            android:inputType="text"
+            android:maxLength="100"
+            android:maxLines="1"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill,TextContrastCheck" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- TextView to display remaining characters for Project Title -->
+    <TextView
+        android:id="@+id/tvYourRoleCharCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/_100_characters_left"
+        android:textColor="#585858"
+        app:layout_constraintEnd_toEndOf="@id/cvYourRole"
+        app:layout_constraintTop_toBottomOf="@id/cvYourRole" />
+
+
+    <TextView
+        android:id="@+id/textProjectDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/project_description"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvYourRoleCharCount" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvProjectDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textProjectDescription">
+
+
+        <EditText
+            android:id="@+id/etProjectDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@null"
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/briefly_describe_the_project_s_goals_your_nsolution_and_the_impact_you_made_here"
+            android:inputType="text"
+            android:maxLength="600"
+            android:maxLines="2"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill,TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+    <!-- TextView to display remaining characters for Project Title -->
+    <TextView
+        android:id="@+id/tvProjectDescriptionCharCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/_600_characters_left"
+        android:textColor="#585858"
+        app:layout_constraintEnd_toEndOf="@id/cvProjectDescription"
+        app:layout_constraintTop_toBottomOf="@id/cvProjectDescription" />
+
+
+    <ImageView
+        android:id="@+id/imageUpload"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/orange_dotted_rectangle"
+        android:padding="@dimen/_23sdp"
+        android:src="@drawable/ic_upload_portfolio"
+        app:layout_constraintTop_toBottomOf="@+id/tvProjectDescriptionCharCount"
+        tools:ignore="ContentDescription,ImageContrastCheck"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewImages"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toBottomOf="@id/imageUpload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:padding="@dimen/_15sdp" />
+
+
+    <TextView
+        android:id="@+id/textSubmitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:fontFamily="@font/lato"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_6ssp"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewImages" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

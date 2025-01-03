@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blueTextColor">#515A81</color>
+    <color name="vividOrange">#FC8C1B</color>
+    <color name="gray">#545454</color>
+    <color name="grayLight">#8A8A8A</color>
+    <color name="gray2">#5C5C5C</color>
+    <color name="deepNavyBlue">#2E3255</color>
+    <color name="lightGray">#F1F2F4</color>
+    <color name="progressColor">#515A81</color>
+    <color name="backgroundColor">#303030</color>
+    <color name="header">#FFFFFF</color>
+    <color name="white_transparent">#00FFFFFF</color>
+</resources>

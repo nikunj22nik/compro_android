@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_white_layout"
+    android:paddingBottom="@dimen/_50sdp">
+
+    <View
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="#7A7A7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageCross"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/image_cross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textYourPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/your_photo"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBigCircle"
+        android:layout_width="@dimen/_155sdp"
+        android:layout_height="@dimen/_155sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@drawable/black_dotted_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textYourPhoto">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageProfileIcon"
+            android:layout_width="@dimen/_58sdp"
+            android:layout_height="@dimen/_58sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:src="@drawable/ic_profile_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageUploadPlusIcon"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_42sdp"
+            android:src="@drawable/ic_upload_plus_icon"
+            app:layout_constraintStart_toStartOf="@id/imageProfileIcon"
+            app:layout_constraintTop_toTopOf="@id/imageProfileIcon" />
+
+        <TextView
+            android:id="@+id/textUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/upload"
+            android:fontFamily="@font/roboto"
+            android:textColor="#FC8C1B"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintStart_toStartOf="@id/imageProfileIcon"
+            app:layout_constraintTop_toBottomOf="@id/imageProfileIcon" />
+
+        <TextView
+            android:id="@+id/textDrop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="@string/or_drop"
+            android:fontFamily="@font/roboto"
+            android:textColor="#727272"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintStart_toEndOf="@id/textUpload"
+            app:layout_constraintTop_toTopOf="@id/textUpload" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/image_here"
+            android:textColor="#727272"
+            android:textSize="@dimen/_8ssp"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintEnd_toEndOf="@id/textDrop"
+            app:layout_constraintStart_toStartOf="@id/textUpload"
+            app:layout_constraintTop_toBottomOf="@+id/textUpload" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/textSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/clBigCircle"
+        android:text="@string/_250_x_250_min_5_mb_max"
+        android:textColor="#949494"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_18sdp"/>
+
+
+    <TextView
+        android:id="@+id/textMustBe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/must_be_an_actual_photo_of_you"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/textSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textDis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textMustBe"
+        android:textColor="#666666"
+        android:layout_marginHorizontal="@dimen/_40sdp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="@string/logos_clip_group_photos_and_digitally_altered_nimages_are_not_allowed"/>
+
+
+    <TextView
+        android:id="@+id/textAttachButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attach_photo"
+        android:fontFamily="@font/lato"
+        android:background="@drawable/blue_gradiant_button_bg"
+        app:layout_constraintTop_toBottomOf="@id/textDis"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"/>
+
+    <TextView
+        android:id="@+id/textCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:fontFamily="@font/roboto"
+        android:textColor="#D8730E"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="@id/textAttachButton"
+        app:layout_constraintBottom_toBottomOf="@id/textAttachButton"
+        app:layout_constraintEnd_toStartOf="@id/textAttachButton"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

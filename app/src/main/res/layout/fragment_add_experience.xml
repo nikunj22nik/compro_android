@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.mainFragments.professional.addExperience.AddExperienceFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textCreateYourProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/_1_8_create_your_profile"
+            android:textColor="@color/gray2" />
+
+        <ImageView
+            android:id="@+id/imageClock"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/textCreateYourProfile"
+            android:src="@drawable/ic_clock"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageClock"
+            android:fontFamily="@font/roboto"
+            android:text="@string/_5_10_min"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:textColor="@color/gray2" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textExperience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/experience"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+    <TextView
+        android:id="@+id/textAllFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textColor="#4A4A4A"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:text="@string/all_fields_are_required_unless_otherwise_indicated1"
+        app:layout_constraintTop_toBottomOf="@id/textExperience" />
+
+
+    <TextView
+        android:id="@+id/textAddExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_28sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/add_experience"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAllFields" />
+
+    <ImageView
+        android:id="@+id/imageAddExperience"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:src="@drawable/ic_add_notebook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAddExperience"
+        tools:ignore="ContentDescription" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:listitem="@layout/layout_experiences"
+        android:layout_marginVertical="@dimen/_20sdp"
+        app:layout_constraintHeight_max="@dimen/_260sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/imageAddExperience" />
+
+
+    <TextView
+        android:id="@+id/textNoExperience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/you_need_to_add_your_experience1"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/imageAddExperience" />
+
+    <TextView
+        android:id="@+id/textBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/back"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/roboto"
+        android:paddingVertical="@dimen/_3sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_11sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <TextView
+        android:id="@+id/textNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/next"
+        android:fontFamily="@font/lato"
+        android:textSize="@dimen/_13ssp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/textSkipForNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_for_now"
+        android:fontFamily="@font/roboto"
+        android:textColor="#595959"
+        app:layout_constraintTop_toTopOf="@id/textNextButton"
+        app:layout_constraintEnd_toStartOf="@id/textNextButton"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/textNextButton"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

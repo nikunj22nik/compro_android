@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/textCertificationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/certification"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Icon -->
+    <ImageView
+        android:id="@+id/editCertification"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:contentDescription="@string/edit_certification"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textCertificationNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/certification_name"
+        android:textColor="#3C3C3C"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationTitle" />
+
+    <TextView
+        android:id="@+id/textCertificationNameTitleName"
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:background="#f5f5f5"
+        android:fontFamily="@font/roboto"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/oxford_software_institute"
+        android:textColor="#555555"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textCertificationNameTitle" />
+
+
+
+
+
+    <TextView
+        android:id="@+id/textCertificationCompletionID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/certification_completion_id"
+        android:textColor="#3C3C3C"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationNameTitleName" />
+
+    <TextView
+        android:id="@+id/textCertificationCompletionIDName"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:background="#f5f5f5"
+        android:fontFamily="@font/roboto"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/savitri_public_school"
+        android:textColor="#555555"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textCertificationCompletionID" />
+
+
+    <TextView
+        android:id="@+id/textCertificationURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/certification_url"
+        android:textColor="#3C3C3C"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textCertificationCompletionIDName"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationNameTitleName" />
+
+    <TextView
+        android:id="@+id/textCertificationURLName"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:background="#f5f5f5"
+        android:fontFamily="@font/roboto"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/sangam_vihar_new_delhi"
+        android:textColor="#555555"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toEndOf="@+id/textCertificationCompletionIDName"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationURL" />
+
+
+
+
+    <TextView
+        android:id="@+id/textStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/start_date"
+        android:textColor="#3C3C3C"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationCompletionIDName" />
+
+    <TextView
+        android:id="@+id/textStartDateName"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:background="#f5f5f5"
+        android:fontFamily="@font/roboto"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/it"
+        android:textColor="#555555"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStartDate" />
+
+
+    <TextView
+        android:id="@+id/textEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/end_date"
+        android:textColor="#3C3C3C"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textStartDateName"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationCompletionIDName" />
+
+    <TextView
+        android:id="@+id/textEndDateName"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:background="#f5f5f5"
+        android:fontFamily="@font/roboto"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="@string/new_delhi"
+        android:textColor="#555555"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toEndOf="@+id/textStartDateName"
+        app:layout_constraintTop_toBottomOf="@+id/textEndDate" />
+
+
+
+    <ImageView
+        android:id="@+id/imageCertification"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_110sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/certificate_image"
+        app:layout_constraintTop_toBottomOf="@+id/textEndDateName"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.mainFragments.professional.portfolioFragment.PortfolioFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textCreateYourProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_10ssp"
+            android:text="@string/_3_8_create_your_profile"
+            android:textColor="@color/gray2" />
+
+        <ImageView
+            android:id="@+id/imageClock"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/textCreateYourProfile"
+            android:src="@drawable/ic_clock"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageClock"
+            android:fontFamily="@font/roboto"
+            android:text="@string/_5_10_min"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/gray2" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textPortfolio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/portfolio"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_25ssp"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader"
+        />
+
+    <ImageView
+        android:id="@+id/imageAddPortfolio"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:src="@drawable/ic_add_notebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_45sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imageAddPortfolio"
+        android:background="#B4B4B4"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPortfolio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        tools:itemCount="4"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        tools:listitem="@layout/layout_portfolio"
+        app:layout_constraintTop_toBottomOf="@id/view"/>
+
+
+    <TextView
+        android:id="@+id/textBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/back"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/roboto"
+        android:paddingVertical="@dimen/_3sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewPortfolio"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/next"
+        android:textSize="@dimen/_13ssp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewPortfolio"/>
+
+    <TextView
+        android:id="@+id/textSkipForNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_for_now"
+        app:layout_constraintTop_toTopOf="@id/textNextButton"
+        app:layout_constraintEnd_toStartOf="@id/textNextButton"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/textNextButton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".fragment.mainFragments.professional.professionalContactInfo.ProfessionalContactInfoFragment">
+
+
+    <TextView
+        android:id="@+id/textAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/account"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textAccount"
+        android:layout_margin="@dimen/_30sdp"
+>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/name"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/black"
+           />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/review_rectangle_bg"
+                android:fontFamily="@font/lato_bold"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textColor="#8D8D8D"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textName"
+                tools:ignore="Autofill,TextSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck,TouchTargetSizeCheck"
+                tools:layout_editor_absoluteX="10dp" />
+
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/email"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/lato"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/etName"
+                />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/review_rectangle_bg"
+                android:fontFamily="@font/lato_bold"
+                android:hint="@string/vfdfd_yopamail_com"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textColor="#8D8D8D"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textEmail"
+                tools:ignore="Autofill,TextSizeCheck,TextContrastCheck,TouchTargetSizeCheck"
+                tools:layout_editor_absoluteX="10dp" />
+
+
+
+            <TextView
+                android:id="@+id/textPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/phone"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/lato"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/etEmail"
+                />
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/review_rectangle_bg"
+                android:fontFamily="@font/lato_bold"
+                android:hint="@string/_1234578920"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textColor="#8D8D8D"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@+id/textPhone"
+                tools:ignore="Autofill,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_bg"
+                app:layout_constraintTop_toBottomOf="@+id/etPhone"
+                android:text="@string/submit"
+                android:fontFamily="@font/lato"
+android:textSize="@dimen/_11ssp"
+                android:paddingHorizontal="@dimen/_25sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_60sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

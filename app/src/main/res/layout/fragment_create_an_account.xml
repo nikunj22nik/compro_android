@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.authfragment.createAnAccount.CreateAnAccountFragment">
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageBackButton"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_back_button"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:padding="@dimen/_10sdp"
+                tools:ignore="ContentDescription" />
+
+
+
+    <TextView
+        android:id="@+id/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/create_an_account"
+        android:textAlignment="center"
+        android:textColor="#4D4D4D"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:src="@drawable/login_line"
+                app:layout_constraintEnd_toEndOf="@id/textLogin"
+                app:layout_constraintStart_toStartOf="@+id/textLogin"
+                app:layout_constraintTop_toBottomOf="@id/textLogin"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_30sdp"
+        android:elevation="@dimen/_200sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imageLine">
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/first_name"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill,TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_30sdp"
+        android:elevation="@dimen/_200sdp"
+        app:layout_constraintTop_toBottomOf="@+id/cvFirstName">
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/last_name"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill,TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_30sdp"
+        android:elevation="@dimen/_200sdp"
+        app:layout_constraintTop_toBottomOf="@+id/cvLastName">
+
+        <EditText
+            android:id="@+id/etEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill,TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_30sdp"
+        android:elevation="@dimen/_200sdp"
+        app:layout_constraintTop_toBottomOf="@+id/cvEmailAddress">
+
+        <EditText
+            android:id="@+id/etMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/mobile"
+            android:inputType="number"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill,TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_30sdp"
+                android:elevation="@dimen/_200sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cvMobile">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_50sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/lato"
+                        android:hint="Password"
+
+                        android:textColorHint="#828282"
+                        android:inputType="textPassword"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:textColor="#828282"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/eyeHide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="@dimen/_10sdp">
+
+                        <ImageView
+                            android:id="@+id/imgShowPass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/eye_show_vector"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+                        <ImageView
+                            android:id="@+id/imgHidePass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/eye_icon_show"
+                            android:visibility="visible"
+                            tools:ignore="ContentDescription" />
+                    </LinearLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_30sdp"
+                android:elevation="@dimen/_200sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cvPassword">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <EditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_50sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/lato"
+                        android:hint="Confirm Password"
+                        android:textColorHint="#828282"
+                        android:inputType="textPassword"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:textColor="#828282"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/eyeHide1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="@dimen/_10sdp">
+
+                        <ImageView
+                            android:id="@+id/imgShowPass1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/eye_show_vector"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+                        <ImageView
+                            android:id="@+id/imgHidePass1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/eye_icon_show"
+                            android:visibility="visible"
+                            tools:ignore="ContentDescription" />
+                    </LinearLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:backgroundTint="#F5F5F5"
+                app:cardCornerRadius="@dimen/_30sdp"
+                android:elevation="@dimen/_200sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvConfirmPassword">
+
+                <TextView
+                    android:id="@+id/tv_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/lato"
+                    android:hint= "Select Country"
+
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:textColor="#828282"
+                    android:textColorHint="#828282"
+                    tools:ignore="Autofill,TextContrastCheck" />
+
+            </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/rlRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_28sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/blue_gradiant_button_bg"
+        app:layout_constraintTop_toBottomOf="@+id/cvCountry">
+
+
+        <TextView
+            android:id="@+id/textRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:text="@string/register"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/arrow_right_icon"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintTop_toBottomOf="@id/rlRegister">
+
+                <ImageView
+                    android:id="@+id/imageGoogle"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/google_icon"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/imageLinkedin"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/linkedin_icon"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/imageFacebook"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:src="@drawable/facebook_icon"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clOR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/ll1">
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/textOR"
+            android:background="#D0D0D0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textOR"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textOR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:text="@string/or"
+
+            android:textColor="#7C7C7C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="#D0D0D0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textOR"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@id/clOR">
+
+        <TextView
+            android:id="@+id/textAlreadyMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:text="@string/already_a_member"
+            android:textColor="#353535"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/textLoginHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textAlreadyMember"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/login_here"
+            android:textColor="#2E3255"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textSize="@dimen/_14ssp" />
+
+        <View
+            android:id="@+id/imageLine2"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:background="#2E3255"
+            android:layout_below="@+id/textLoginHere"
+            android:layout_alignEnd="@+id/textLoginHere"
+            android:layout_marginEnd="@dimen/_27sdp"
+            tools:ignore="ContentDescription" />
+
+
+    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

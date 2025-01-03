@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".fragment.authfragment.pleaseVerifyFragment.PleaseVerifyFragment">
+
+    <ImageView
+        android:id="@+id/imageBackButton"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/_10sdp"
+        tools:ignore="ContentDescription" />
+
+
+    <ImageView
+        android:id="@+id/imageEmailIcon"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/email_verify_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/textVerifyYour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/verify_your_email_to_continue"
+        android:textAlignment="center"
+        android:textColor="#2D2D2D"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageEmailIcon" />
+
+    <ImageView
+        android:id="@+id/imageLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:paddingHorizontal="@dimen/_30sdp"
+        android:src="@drawable/verify_orange_line"
+        app:layout_constraintEnd_toEndOf="@id/textVerifyYour"
+        app:layout_constraintStart_toStartOf="@+id/textVerifyYour"
+        app:layout_constraintTop_toBottomOf="@id/textVerifyYour"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/textSentEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/we_just_sent_an_email_to_the_address"
+        android:textAlignment="center"
+        android:textSize="@dimen/_11ssp"
+        android:layout_marginTop="@dimen/_10ssp"
+        android:textColor="#494949"
+        app:layout_constraintTop_toBottomOf="@id/imageLine"/>
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/vinodglocal1028_gmail_com"
+        android:textAlignment="center"
+        android:textSize="@dimen/_11ssp"
+        android:textStyle="bold"
+        android:textColor="#3D3D3D"
+        app:layout_constraintTop_toBottomOf="@id/textSentEmail"/>
+    <TextView
+        android:id="@+id/textPleaseCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="@string/please_check_your_email_and_select_the_link_n_provided_to_verify_your_address"
+        android:textAlignment="center"
+        android:textSize="@dimen/_11ssp"
+        android:textColor="#494949"
+        app:layout_constraintTop_toBottomOf="@id/textEmail"/>
+
+
+    <TextView
+        android:id="@+id/textChangeEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/change_email"
+        android:textAlignment="center"
+        android:textColor="#FC8C1B"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPleaseCheck"
+        tools:ignore="TextContrastCheck" />
+
+    <View
+        android:id="@+id/imageLine2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="#FC8C1B"
+        app:layout_constraintEnd_toEndOf="@id/textChangeEmail"
+        app:layout_constraintStart_toStartOf="@+id/textChangeEmail"
+        app:layout_constraintTop_toBottomOf="@id/textChangeEmail"
+        tools:ignore="ContentDescription" />
+
+
+    <RelativeLayout
+        android:id="@+id/rlResendVerificationEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@drawable/blue_gradiant_button_bg"
+        app:layout_constraintTop_toBottomOf="@+id/imageLine2">
+
+
+        <TextView
+            android:id="@+id/textResendVerificationEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_18sdp"
+android:fontFamily="@font/lato"
+            android:paddingVertical="@dimen/_8sdp"
+            android:text="@string/resend_verification_email"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/arrow_right_icon"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

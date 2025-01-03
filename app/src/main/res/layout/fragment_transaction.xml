@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".fragment.mainFragments.professional.transactionFragment.TransactionFragment">
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:weightSum="2">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_weight="1"
+            android:background="#2E3255"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/planLabel"
+                android:text="Current plan"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/lato_bold"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_15ssp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$14.95 Month"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/planPrice"
+                android:textSize="@dimen/_9sdp"
+                android:fontFamily="@font/lato"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_weight="1"
+            android:background="#FC8C1B"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current billing Cycle"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:fontFamily="@font/lato_bold"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_15ssp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jun 20, 2024 — Jul 19, 2024"
+                android:fontFamily="@font/lato"
+                android:textSize="@dimen/_9sdp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transactions History"
+        android:textColor="#2E3255"
+        android:fontFamily="@font/lato_bold"
+        android:textSize="@dimen/_17sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/ll1"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/transactions_items"
+        android:layout_marginVertical="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

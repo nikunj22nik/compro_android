@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.mainFragments.professional.addCertification.AddCertificationFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textCreateYourProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_10ssp"
+            android:text="@string/_5_8_create_your_profile"
+            android:textColor="@color/gray2" />
+
+        <ImageView
+            android:id="@+id/imageClock"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/textCreateYourProfile"
+            android:src="@drawable/ic_clock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageClock"
+            android:fontFamily="@font/roboto"
+            android:text="@string/_5_10_min"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/gray2" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textEducation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/certification"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+    <TextView
+        android:id="@+id/textAllFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/roboto"
+        android:textColor="#484848"
+        android:text="@string/add_details_of_certifications_you_have_achieved_completed"
+        app:layout_constraintTop_toBottomOf="@id/textEducation" />
+
+
+
+
+    <TextView
+        android:id="@+id/textCertificationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/certification_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAllFields" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCertificationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationName">
+
+        <EditText
+            android:id="@+id/etCertificationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_northwestern_university"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/textCertificationCompletionID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/certification_completion_id"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvCertificationName" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCertificationCompletionID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationCompletionID">
+
+        <EditText
+            android:id="@+id/etCertificationCompletionID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_bachelors11"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textCertificationURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/certification_url"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvCertificationCompletionID" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCertificationUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textCertificationURL">
+
+        <EditText
+            android:id="@+id/etCertificationUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_bachelors111"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="Autofill" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+        android:id="@+id/textStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/start_date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvCertificationUrl" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStartDate">
+
+
+        <EditText
+            android:id="@+id/etStartDate"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:inputType="date"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/end_date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@+id/cvStartDate"
+
+        app:layout_constraintTop_toBottomOf="@id/cvCertificationUrl" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toEndOf="@+id/cvStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/textEndDate">
+
+        <EditText
+            android:id="@+id/etCountry"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@null"
+
+            android:fontFamily="@font/lato"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageUpload"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginVertical="@dimen/_13sdp"
+        android:background="@drawable/orange_dotted_rectangle"
+        android:padding="@dimen/_23sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        android:src="@drawable/ic_upload_portfolio"
+        app:layout_constraintTop_toBottomOf="@+id/cvCountry"
+        tools:ignore="ContentDescription" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewImages1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toBottomOf="@id/imageUpload"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="@dimen/_15sdp" />
+
+    <TextView
+        android:id="@+id/textBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/back"
+        android:fontFamily="@font/roboto"
+        android:textSize="@dimen/_13ssp"
+        android:paddingVertical="@dimen/_3sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_11sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewImages1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <TextView
+        android:id="@+id/textNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:text="@string/next"
+        android:textSize="@dimen/_13ssp"
+        android:fontFamily="@font/lato"
+        android:paddingVertical="@dimen/_5sdp"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_30sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewImages1"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/textSkipForNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_for_now"
+        android:fontFamily="@font/roboto"
+        android:textColor="#595959"
+        app:layout_constraintTop_toTopOf="@id/textNextButton"
+        app:layout_constraintEnd_toStartOf="@id/textNextButton"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/textNextButton"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

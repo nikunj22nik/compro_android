@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_white_layout"
+    android:paddingBottom="@dimen/_50sdp">
+
+    <View
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="#7A7A7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageCross"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:padding="@dimen/_4sdp"
+        android:contentDescription="@string/imagecross"
+        android:src="@drawable/image_cross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAddEducation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/add_education"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/school"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAddEducation" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textSchool">
+
+        <EditText
+            android:id="@+id/etSchool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@null"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_northwestern_university"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextContrastCheck" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/textDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/degree"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvSchool" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDegree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textDegree">
+
+        <EditText
+            android:id="@+id/etDegree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:autofillHints="@string/ex_bachelors"
+            android:background="@null"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_bachelors"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/textFieldStudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/field_of_study"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvDegree" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvFieldStudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFieldStudy">
+
+
+        <EditText
+            android:id="@+id/etFieldStudy"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:autofillHints="Ex: Computer Science"
+            android:background="@null"
+            android:textSize="@dimen/_9ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_computer_science"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/country"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@+id/cvFieldStudy"
+
+        app:layout_constraintTop_toBottomOf="@id/cvDegree" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toEndOf="@+id/cvFieldStudy"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry">
+
+        <EditText
+            android:id="@+id/etCountry"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:autofillHints=""
+            android:background="@null"
+            android:textSize="@dimen/_9ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/ex_usa1"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextContrastCheck" />
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <TextView
+        android:id="@+id/textStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/start_date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvCountry" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStartDate">
+
+
+        <EditText
+            android:id="@+id/etStartDate"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:autofillHints=""
+            android:background="@null"
+            android:textSize="@dimen/_9ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/_1_1_2024"
+            android:inputType="number"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextFields,TextContrastCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/end_date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@+id/cvStartDate"
+
+        app:layout_constraintTop_toBottomOf="@id/cvCountry" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toEndOf="@+id/cvFieldStudy"
+        app:layout_constraintTop_toBottomOf="@+id/textEndDate">
+
+        <EditText
+            android:id="@+id/etEndDate"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:autofillHints=""
+            android:background="@null"
+            android:textSize="@dimen/_9ssp"
+            android:fontFamily="@font/lato"
+            android:hint="@string/_11_10_2024"
+            android:inputType="text"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextFields,TextContrastCheck" />
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/lato"
+        android:text="@string/description"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvStartDate" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:backgroundTint="#F5F5F5"
+        app:cardCornerRadius="@dimen/_7sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDescription">
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:autofillHints=""
+            android:background="@null"
+            android:fontFamily="@font/lato"
+            android:gravity="start"
+            android:hint="@string/ex_bachelors1"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="#828282"
+            android:textColorHint="#828282"
+            tools:ignore="TextContrastCheck" />
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <TextView
+        android:id="@+id/textSubmitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:fontFamily="@font/lato"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_6ssp"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

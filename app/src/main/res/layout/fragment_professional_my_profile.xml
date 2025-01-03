@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.mainFragments.professional.professionalMyProfile.ProfessionalMyProfileFragment">
+
+ <androidx.core.widget.NestedScrollView
+     android:layout_width="match_parent"
+     android:layout_height="0dp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     android:layout_marginBottom="@dimen/_5sdp"
+     app:layout_constraintTop_toTopOf="parent">
+
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+
+
+ <TextView
+     android:id="@+id/textMyProfile"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/my_profile"
+     android:fontFamily="@font/roboto_bold"
+     android:textColor="@color/black"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     android:layout_marginHorizontal="@dimen/_15sdp"
+     android:layout_marginTop="@dimen/_30sdp"/>
+
+
+
+
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/llProfile"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@id/textMyProfile">
+
+
+    <!-- Profile Image -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:background="@android:color/white"
+        android:contentDescription="@string/profile_image"
+
+        android:src="@drawable/profile_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Name and Details -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="parent">
+
+     <!-- Name -->
+     <TextView
+         android:id="@+id/textProfileName"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:fontFamily="@font/roboto"
+         android:text="@string/vinod_kumar1"
+         android:textColor="@android:color/black"
+         android:textSize="@dimen/_13ssp"
+         android:textStyle="bold"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <!-- Phone number -->
+     <TextView
+         android:id="@+id/textProfilePhone"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:drawablePadding="@dimen/_5sdp"
+         android:fontFamily="@font/roboto"
+         android:text="@string/_9999_999_999"
+         android:textColor="#808080"
+         android:textSize="@dimen/_11ssp"
+         app:drawableStartCompat="@drawable/ic_phone_icon"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/textProfileName" />
+
+     <!-- Email -->
+        <TextView
+            android:id="@+id/textProfileEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_4sdp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/vinod_glocalassist_com"
+            android:textColor="#808080"
+            android:textSize="@dimen/_11ssp"
+            app:drawableStartCompat="@drawable/ic_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textProfilePhone"
+            tools:ignore="TextContrastCheck" />
+
+     <!-- Location -->
+     <TextView
+         android:id="@+id/profile_location"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:drawablePadding="@dimen/_4sdp"
+         android:fontFamily="@font/roboto"
+         android:text="@string/canada"
+         android:textColor="#808080"
+         android:textSize="@dimen/_11ssp"
+         app:drawableStartCompat="@drawable/ic_location"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/textProfileEmail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Edit Icon -->
+    <ImageView
+        android:id="@+id/editProfile"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_margin="@dimen/_30sdp"
+        android:contentDescription="@string/edit_profile"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintStart_toStartOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clProfessionalExperience"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_215sdp"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/llProfile">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewExperience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="1"
+        tools:listitem="@layout/layout_professional_experience" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clEducation"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_190sdp"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clProfessionalExperience">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEducation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="@dimen/_210sdp"
+        android:overScrollMode="never"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="1"
+        tools:listitem="@layout/layout_education_preview" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clSkill"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clEducation">
+
+    <TextView
+        android:id="@+id/textSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/skill"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Icon -->
+    <ImageView
+        android:id="@+id/editSkill"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:contentDescription="@string/edit_experience"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSkill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:nestedScrollingEnabled="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSkill" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clLocation"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clSkill">
+
+    <include
+        android:id="@+id/includedLocationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_location"/>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clOverview"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clLocation">
+
+    <TextView
+        android:id="@+id/textOverviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/overview"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Icon -->
+    <ImageView
+        android:id="@+id/imageEditOverview"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:contentDescription="@string/edit_overview"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/help_people_get_to_know_you_at_a_glance_what_work_do_you_do_best_tell_them_clearly_using_paragraphs_or_bullet_points_you_can_always_edit_later_just_make_sure_you_proofread_now"
+        android:textColor="#606060"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/textOverviewTitle" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clResume"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clOverview">
+
+    <TextView
+        android:id="@+id/textResumeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/resume"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Icon -->
+    <ImageView
+        android:id="@+id/editResume"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:contentDescription="@string/edit_resume"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/blue_gradiant_button_bg"
+        android:backgroundTint="#E3E3E3"
+        android:drawablePadding="@dimen/_5sdp"
+        android:paddingHorizontal="@dimen/_13sdp"
+        android:paddingVertical="@dimen/_5sdp"
+        android:text="@string/download"
+        app:drawableStartCompat="@drawable/ic_download_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResumeTitle" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clCertification"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_260sdp"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clResume">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCertificate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="1" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clPortfolio"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/_7sdp"
+       android:background="@drawable/black_line_bg"
+       android:padding="@dimen/_15sdp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_marginBottom="@dimen/_10sdp"
+       app:layout_constraintTop_toBottomOf="@+id/clCertification">
+
+
+    <!-- Professional Experience Section -->
+    <TextView
+        android:id="@+id/textPortfolioTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/portfolio"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Icon -->
+<!--    <ImageView-->
+<!--        android:id="@+id/editPortfolio"-->
+<!--        android:layout_width="@dimen/_24sdp"-->
+<!--        android:layout_height="@dimen/_24sdp"-->
+<!--        android:contentDescription="@string/edit_profile"-->
+<!--        android:src="@drawable/ic_edit"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPortfolio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/textPortfolioTitle"
+        app:spanCount="2"
+        tools:itemCount="4"
+        tools:listitem="@layout/layout_portfolio" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+ </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
