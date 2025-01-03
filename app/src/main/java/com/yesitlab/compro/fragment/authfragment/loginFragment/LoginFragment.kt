@@ -10,19 +10,33 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.network.CommonUtild
+import com.example.network.NetworkResult
+import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.R
 import com.yesitlab.compro.activity.homeActivity.HomeActivity
 import com.yesitlab.compro.base.AppConstant
+import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.base.ErrorMsgBox
 import com.yesitlab.compro.base.ValidationData
 import com.yesitlab.compro.databinding.FragmentLoginBinding
+import com.yesitlab.compro.viewmodel.LoginViewModel
+import com.yesitlab.compro.viewmodel.RegistrationViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
-
+@AndroidEntryPoint
 class LoginFragment : Fragment(), OnClickListener {
     private lateinit var binding: FragmentLoginBinding
     var validation: ValidationData = ValidationData()
+
+    private lateinit var viewModel : LoginViewModel
+    private lateinit var commonUtild: CommonUtild
+    private lateinit var commonUtils: CommonUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +52,17 @@ class LoginFragment : Fragment(), OnClickListener {
         // Inflate the layout for this fragment
         binding =
             FragmentLoginBinding.inflate(LayoutInflater.from(requireContext()), container, false)
+
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        commonUtild = CommonUtild(requireContext())
+        commonUtils = CommonUtils(requireContext())
+
+
+
+
+
+
+
         return binding.root
     }
 
@@ -74,11 +99,42 @@ class LoginFragment : Fragment(), OnClickListener {
             }
             R.id.rlSignIn -> {
                 if (validateInput()){
+                    lifecycleScope.launch {
+                        loginApi()
+                    }
+
+                }
+
+            }
+        }
+    }
+
+     suspend fun loginApi() {
+      val email = binding.etEmailUsername.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+
+        LoadingUtils.showDialog(requireContext(),true)
+        viewModel.apiLogin(email,password){
+            when(it){
+                is NetworkResult.Success -> {
+                    LoadingUtils.hideDialog()
+
+
+
+                    it.data?.let { it1 -> commonUtils.setUserId(it1.second) }
+
                     val intent = Intent(requireActivity(), HomeActivity::class.java)
                     intent.putExtra(AppConstant.homeActivity, "login")
                     startActivity(intent)
                     requireActivity().finish()
+
                 }
+                is NetworkResult.Error -> {
+                    LoadingUtils.hideDialog()
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+                }
+                is NetworkResult.Loading -> TODO()
 
             }
         }

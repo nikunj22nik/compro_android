@@ -825,7 +825,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         public HiltVersionVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
 
         /**
-         * Version alias <b>hilt.version.num</b> with value <b>2.44</b>
+         * Version alias <b>hilt.version.num</b> with value <b>2.46</b>
          * <p>
          * If the version is a rich version and cannot be represented as a
          * single version string, an empty string is returned.

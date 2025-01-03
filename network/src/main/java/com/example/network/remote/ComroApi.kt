@@ -20,4 +20,13 @@ interface ComroApi {
      @Field("country") country :String
     ) :Response<JsonObject>
 
+
+
+    @POST("Apilogin")
+    @FormUrlEncoded
+    suspend fun apiLogin(
+        @Field("email") email :String,
+        @Field("password") password :String
+    ) :Response<JsonObject>
+
 }

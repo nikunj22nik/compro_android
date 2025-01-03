@@ -1,7 +1,9 @@
 package com.example.network.repository
 
 import com.example.network.NetworkResult
+import com.example.network.apiModel.LoginResponse
 import com.example.network.remote.ComroApi
+import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.HttpException
@@ -76,6 +78,84 @@ class ComroRepositoryImpl @Inject constructor(private val api:ComroApi) :ComroRe
         }
 
 
+
+    }
+
+    override suspend fun apiLogin(
+        email: String,
+        password: String,
+        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+    ) {
+        try{
+            api.apiLogin(email,password).apply {
+                if(isSuccessful){
+                    body()?.let {
+                        if(it.get("status").asBoolean){
+                            var massage = it.get("data").asString
+
+
+
+                            var token = it.get("token").asString
+
+
+
+
+
+                            var user_id = -1
+                             user_id = it.get("user_id").asInt
+
+                            if(user_id != -1){
+                                successCallback(NetworkResult.Success<Pair<String,Int>>(Pair(token,user_id)))
+                            }
+
+
+
+
+
+
+                           // successCallback(NetworkResult.Success<String>())
+
+                        }
+                        else if(it.get("status").asBoolean == false){
+
+                            val message = it.get("data").asString
+                            if (message != null){
+                                successCallback(NetworkResult.Error<Pair<String,Int>>(message))
+                            }
+
+                        }
+                        else{
+                            successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
+                        }
+                    }?: successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
+                }
+                else {
+                    try {
+                        val jsonObj = this.errorBody()?.string()?.let { JSONObject(it) }
+                        successCallback(
+                            NetworkResult.Error<Pair<String,Int>>(jsonObj?.getString("message")
+                                ?: "There was an unknown error. Check your connection and try again."
+                            )
+                        )
+                    }
+                    catch (e: JSONException) {
+                        e.printStackTrace()
+                        successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
+                    }
+                }
+            }
+        }
+        catch (e: HttpException) {
+            if (e.code().toString() == "401") {
+            }
+            successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
+        }
+        catch (e: IOException) {
+            successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
+        }
+        catch (e: Exception) {
+            successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
+        }
 
     }
 }

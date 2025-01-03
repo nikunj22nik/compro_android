@@ -15,4 +15,13 @@ interface ComroRepository {
            country :String,
            successCallback: (response: NetworkResult<String>) -> Unit
     )
+
+    suspend fun apiLogin(
+        email :String,
+        password :String,
+        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+    )
+
+
+
 }
