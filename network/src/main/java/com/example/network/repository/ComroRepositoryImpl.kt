@@ -163,21 +163,22 @@ class ComroRepositoryImpl @Inject constructor(private val api:ComroApi) :ComroRe
 
     }
 
-    override suspend fun apiExperience(
-        id: String,
+    override suspend fun apiAddExperience(
+
         user_id: String,
         profile_id: String,
-        organization: String,
-        role: String,
-        course: String,
+        company: String,
+        title: String,
+        location: String,
+        country: String,
         currently_prof: String,
         start_date: String,
         end_date: String,
-        description: String,
+
         successCallback: (response: NetworkResult<Pair<String, Int>>) -> Unit
     ) {
         try{
-            api.apiExperience(id,user_id,profile_id,organization,role,course,currently_prof,start_date,end_date,description).apply {
+            api.apiAddExperience(user_id,profile_id,company,title,location,country,currently_prof,start_date,end_date).apply {
                 if(isSuccessful){
                     body()?.let {
                         if(it.get("status").asString == "success"){
@@ -227,6 +228,23 @@ class ComroRepositoryImpl @Inject constructor(private val api:ComroApi) :ComroRe
         catch (e: Exception) {
             successCallback(NetworkResult.Error<Pair<String,Int>>("There was an unknown error. Check your connection, and try again."))
         }
+    }
+
+    override suspend fun apiUpdateExperience(
+        id: String,
+        user_id: String,
+        profile_id: String,
+        company: String,
+        title: String,
+        location: String,
+        country: String,
+        currently_prof: String,
+        start_date: String,
+        end_date: String,
+        description: String,
+        successCallback: (response: NetworkResult<Pair<String, Int>>) -> Unit
+    ) {
+        TODO("Not yet implemented")
     }
 
 

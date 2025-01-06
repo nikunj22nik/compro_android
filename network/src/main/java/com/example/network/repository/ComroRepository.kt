@@ -36,13 +36,31 @@ interface ComroRepository {
 
 
 
-    suspend fun apiExperience(
+    suspend fun apiAddExperience(
+
+        user_id :String,
+        profile_id :String,
+        company :String,
+        title :String,
+        location: String,
+        country :String,
+        currently_prof :String,
+        start_date :String,
+        end_date :String,
+
+        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+    )
+
+
+
+    suspend fun apiUpdateExperience(
         id :String,
         user_id :String,
         profile_id :String,
-        organization :String,
-        role :String,
-        course :String,
+        company :String,
+        title :String,
+        location: String,
+        country :String,
         currently_prof :String,
         start_date :String,
         end_date :String,

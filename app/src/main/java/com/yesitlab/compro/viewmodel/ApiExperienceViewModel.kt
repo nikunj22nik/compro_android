@@ -10,20 +10,19 @@ import javax.inject.Inject
 class ApiExperienceViewModel  @Inject constructor(private val repository: ComroRepository): ViewModel()  {
 
 
-     suspend fun apiExperience(
-        id: String,
-        user_id: String,
-        profile_id: String,
-        organization: String,
-        role: String,
-        course: String,
-        currently_prof: String,
-        start_date: String,
-        end_date: String,
-        description: String,
+     suspend fun apiAddExperience(
+         user_id :String,
+         profile_id :String,
+         company :String,
+         title :String,
+         location: String,
+         country :String,
+         currently_prof :String,
+         start_date :String,
+         end_date :String,
         successCallback: (response: NetworkResult<Pair<String, Int>>) -> Unit
     ){
-         repository.apiExperience(id,user_id, profile_id, organization, role, course, currently_prof, start_date, end_date, description){
+         repository.apiAddExperience(user_id, profile_id, company,title,location,country, currently_prof, start_date, end_date){
              successCallback(it)
          }
      }
