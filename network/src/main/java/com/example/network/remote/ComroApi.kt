@@ -41,17 +41,32 @@ interface ComroApi {
 
     @POST("apiExperience")
     @FormUrlEncoded
-    suspend fun apiExperience(
+    suspend fun apiAddExperience(
         @Field("id") id :String,
         @Field("user_id") user_id : String,
         @Field("profile_id") profile_id :String,
-        @Field("organization") organization : String,
-        @Field("role") role :String,
-        @Field("course") course : String,
+        @Field("company") company : String,
+        @Field("title") title :String,
+        @Field("location") location : String,
         @Field("currently_prof") currently_prof :String,
         @Field("start_date") start_date : String,
-        @Field("end_date") end_date : String,
-        @Field("description") description :String
+        @Field("end_date") end_date : String
+    ) :Response<JsonObject>
+
+
+
+    @POST("apiExperience")
+    @FormUrlEncoded
+    suspend fun apiUpdateExperience(
+        @Field("id") id :String,
+        @Field("user_id") user_id : String,
+        @Field("profile_id") profile_id :String,
+        @Field("company") company : String,
+        @Field("title") title :String,
+        @Field("location") location : String,
+        @Field("currently_prof") currently_prof :String,
+        @Field("start_date") start_date : String,
+        @Field("end_date") end_date : String
     ) :Response<JsonObject>
 
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -43,6 +44,7 @@ lateinit var etCountry : String
 
 lateinit var etStartDate : String
 lateinit var etEndDate : String
+ var currentPro : Boolean = false
 
 
     private lateinit var viewModel : ApiExperienceViewModel
@@ -95,11 +97,14 @@ lateinit var etEndDate : String
 
         etStartDate  = bottomSheetDialog.findViewById<EditText>(R.id.etStartDate).toString()!!
          etEndDate  = bottomSheetDialog.findViewById<EditText>(R.id.etEndDate).toString()!!
+        currentPro  = bottomSheetDialog.findViewById<CheckBox>(R.id.checkbox1)!!
+
+
         val imageCross: ImageView = bottomSheetDialog.findViewById(R.id.imageCross)!!
 
 
         btnSubmit.setOnClickListener {
-            apiAddExperience(etTitle,etCompany,etLocation,etCountry,etStartDate,etEndDate)
+            apiAddExperience(etTitle,etCompany,etLocation,etCountry,   etStartDate,etEndDate)
 
             bottomSheetDialog.dismiss()
 
@@ -110,15 +115,14 @@ lateinit var etEndDate : String
         }
     }
 
-    private fun apiAddExperience(etTitle: String, etCompany: String, etLocation: String, etCountry: String, etStartDate: String, etEndDate: String) {
-var id : String = "1"
+    private suspend fun apiAddExperience(etTitle: String, etCompany: String, etLocation: String, etCountry: String, etStartDate: String, etEndDate: String) {
         var user_id : String = commonUtils.getUserId().toString()
         var profile_id : String = "1"
 
 
         LoadingUtils.showDialog(requireContext(),true)
-        /*
-        viewModel.apiExperience(id,user_id,profile_id,etCompany,etTitle,){
+
+        viewModel.apiAddExperience(user_id,profile_id,etCompany,etTitle,etLocation,etCountry,etStartDate,etEndDate){
             when(it){
                 is NetworkResult.Success -> {
                     LoadingUtils.hideDialog()
@@ -139,7 +143,6 @@ var id : String = "1"
         }
 
 
-         */
     }
 
 
