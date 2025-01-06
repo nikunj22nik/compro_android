@@ -21,7 +21,9 @@ import com.yesitlab.compro.activity.authActivity.AuthActivity
 import com.yesitlab.compro.base.AppConstant
 import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.databinding.ActivityHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var commonUtils: CommonUtils
@@ -34,6 +36,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         commonUtils = CommonUtils(this)
         binding = ActivityHomeBinding.inflate(LayoutInflater.from(this))
+
         setContentView(binding.root)
         drawerVisibility()
         header()

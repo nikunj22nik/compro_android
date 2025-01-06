@@ -1,28 +1,53 @@
 package com.yesitlab.compro.fragment.mainFragments.professional.addExperience
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.network.CommonUtild
+import com.example.network.NetworkResult
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.OnItemClickListener
 import com.yesitlab.compro.R
+import com.yesitlab.compro.activity.homeActivity.HomeActivity
 import com.yesitlab.compro.adapter.ExperienceAdapter
+import com.yesitlab.compro.base.AppConstant
+import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.base.ErrorMsgBox
 import com.yesitlab.compro.databinding.FragmentAddExperienceBinding
 import com.yesitlab.compro.model.AddExperienceModel
+import com.yesitlab.compro.viewmodel.ApiExperienceViewModel
+import com.yesitlab.compro.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
 
     private lateinit var binding: FragmentAddExperienceBinding
     private lateinit var experienceAdapter: ExperienceAdapter
     private var list: MutableList<AddExperienceModel> = mutableListOf() // Mutable list to allow adding items
+lateinit var etTitle : String
+lateinit var etCompany : String
+lateinit var etLocation : String
+lateinit var etCountry : String
+
+lateinit var etStartDate : String
+lateinit var etEndDate : String
+
+
+    private lateinit var viewModel : ApiExperienceViewModel
+
+    private lateinit var commonUtils: CommonUtils
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +55,10 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentAddExperienceBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[ApiExperienceViewModel::class.java]
+
+        commonUtils = CommonUtils(requireContext())
+
         return binding.root
     }
 
@@ -58,10 +87,20 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
         bottomSheetDialog.show()
 
         val btnSubmit: TextView = bottomSheetDialog.findViewById(R.id.textSubmitButton)!!
+
+        etTitle  = bottomSheetDialog.findViewById<EditText>(R.id.etTitle).toString()!!
+        etCompany  = bottomSheetDialog.findViewById<EditText>(R.id.etCompany).toString()!!
+         etLocation  = bottomSheetDialog.findViewById<EditText>(R.id.etLocation).toString()!!
+      etCountry = bottomSheetDialog.findViewById<EditText>(R.id.etCountry).toString()!!
+
+        etStartDate  = bottomSheetDialog.findViewById<EditText>(R.id.etStartDate).toString()!!
+         etEndDate  = bottomSheetDialog.findViewById<EditText>(R.id.etEndDate).toString()!!
         val imageCross: ImageView = bottomSheetDialog.findViewById(R.id.imageCross)!!
 
 
         btnSubmit.setOnClickListener {
+            apiAddExperience(etTitle,etCompany,etLocation,etCountry,etStartDate,etEndDate)
+
             bottomSheetDialog.dismiss()
 
         }
@@ -69,6 +108,38 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
             bottomSheetDialog.dismiss()
 
         }
+    }
+
+    private fun apiAddExperience(etTitle: String, etCompany: String, etLocation: String, etCountry: String, etStartDate: String, etEndDate: String) {
+var id : String = "1"
+        var user_id : String = commonUtils.getUserId().toString()
+        var profile_id : String = "1"
+
+
+        LoadingUtils.showDialog(requireContext(),true)
+        /*
+        viewModel.apiExperience(id,user_id,profile_id,etCompany,etTitle,){
+            when(it){
+                is NetworkResult.Success -> {
+                    LoadingUtils.hideDialog()
+
+
+
+
+
+                }
+                is NetworkResult.Error -> {
+                    LoadingUtils.hideDialog()
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+                }
+                is NetworkResult.Loading -> TODO()
+
+            }
+        }
+
+
+         */
     }
 
 

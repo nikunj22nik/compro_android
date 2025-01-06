@@ -59,10 +59,6 @@ class LoginFragment : Fragment(), OnClickListener {
 
 
 
-
-
-
-
         return binding.root
     }
 

@@ -29,4 +29,33 @@ interface ComroApi {
         @Field("password") password :String
     ) :Response<JsonObject>
 
+
+    @POST("apitalent")
+    @FormUrlEncoded
+    suspend fun apitalent(
+        @Field("user_id") user_id :String,
+        @Field("page") page : Int
+    ) :Response<JsonObject>
+
+
+
+    @POST("apiExperience")
+    @FormUrlEncoded
+    suspend fun apiExperience(
+        @Field("id") id :String,
+        @Field("user_id") user_id : String,
+        @Field("profile_id") profile_id :String,
+        @Field("organization") organization : String,
+        @Field("role") role :String,
+        @Field("course") course : String,
+        @Field("currently_prof") currently_prof :String,
+        @Field("start_date") start_date : String,
+        @Field("end_date") end_date : String,
+        @Field("description") description :String
+    ) :Response<JsonObject>
+
+
+
+
+
 }
