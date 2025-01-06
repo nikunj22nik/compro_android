@@ -2,6 +2,7 @@ package com.yesitlab.compro
 
 import android.app.AlertDialog
 import android.content.Context
+import com.yesitlab.compro.base.CommonUtils
 import taimoor.sultani.sweetalert2.Sweetalert
 
 open class LoadingUtils {
@@ -55,6 +56,10 @@ open class LoadingUtils {
 
         }
 
+        fun getAuthToken(context:Context) :  String{
+            var commonUtils = CommonUtils(context)
+        return    commonUtils.getToken()
+        }
     }
 
 }

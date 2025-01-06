@@ -60,26 +60,32 @@ class HomeActivity : AppCompatActivity() {
             navController?.navigate(R.id.professionalContactInfoFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textProfileVisibility).setOnClickListener{
             navController?.navigate(R.id.profileVisibilityFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textPasswordSecurity).setOnClickListener{
             navController?.navigate(R.id.passwordAndSecurityFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textLogOut).setOnClickListener{
             logOutDialog()
             binding.main.close()
         }
+
         findViewById<View>(R.id.textDeleteAccount).setOnClickListener{
             deleteDialog()
             binding.main.close()
         }
+
         findViewById<View>(R.id.textTransaction).setOnClickListener{
             navController?.navigate(R.id.transactionFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textMyProfile).setOnClickListener{
             if (commonUtils.getUserType() == AppConstant.Professional){
                 navController?.navigate(R.id.professionalMyProfileFragment)
@@ -115,8 +121,8 @@ class HomeActivity : AppCompatActivity() {
         }
         postDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         postDialog.show()
-
     }
+
     private fun deleteDialog() {
         val postDialog = Dialog(this)
         postDialog.setContentView(R.layout.alert_delete_dialog)
@@ -145,6 +151,10 @@ class HomeActivity : AppCompatActivity() {
     private fun flow() {
         val navController = supportFragmentManager.findFragmentById(R.id.fragmentMainContainerView)
             ?.findNavController()
+        if(1 ==1 ){
+            navController?.navigate(R.id.addEducationFragment)
+        }
+
         if (commonUtils.getUserType() == AppConstant.Professional && flowType == "Professional") {
 
             navController?.navigate(R.id.bigOpportunityFragment)
