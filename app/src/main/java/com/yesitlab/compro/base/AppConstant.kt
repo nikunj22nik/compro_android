@@ -3,6 +3,7 @@ package com.yesitlab.compro.base
 class AppConstant {
     companion object {
         const val LOGIN_SESSION: String = "login_session"
+        var Token : String? = "token"
         var Id: String? = "Id"
         var USER_TYPE: String? = "USER_TYPE"
         var User: String = "USER"

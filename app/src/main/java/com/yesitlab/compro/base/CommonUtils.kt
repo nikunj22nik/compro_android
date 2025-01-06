@@ -36,12 +36,12 @@ class CommonUtils(var context: Context) {
         return pref?.getInt(AppConstant.Id,-1)
     }
 
+    fun setToken(token : String){
+        editor!!.putString(AppConstant.Token,token)
+        editor!!.commit()
+    }
 
-
-
-
-
-
-
-
+    fun getToken(): String{
+        return pref?.getString(AppConstant.Token,"")?:""
+    }
 }
