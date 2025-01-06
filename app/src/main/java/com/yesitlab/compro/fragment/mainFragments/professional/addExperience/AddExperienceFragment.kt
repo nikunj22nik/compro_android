@@ -2,6 +2,7 @@ package com.yesitlab.compro.fragment.mainFragments.professional.addExperience
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +14,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.network.CommonUtild
 import com.example.network.NetworkResult
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.checkbox.MaterialCheckBox.CheckedState
 import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.OnItemClickListener
 import com.yesitlab.compro.R
@@ -25,11 +28,13 @@ import com.yesitlab.compro.adapter.ExperienceAdapter
 import com.yesitlab.compro.base.AppConstant
 import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.base.ErrorMsgBox
+import com.yesitlab.compro.base.TimeManager
 import com.yesitlab.compro.databinding.FragmentAddExperienceBinding
 import com.yesitlab.compro.model.AddExperienceModel
 import com.yesitlab.compro.viewmodel.ApiExperienceViewModel
 import com.yesitlab.compro.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
@@ -95,16 +100,41 @@ lateinit var etEndDate : String
          etLocation  = bottomSheetDialog.findViewById<EditText>(R.id.etLocation).toString()!!
       etCountry = bottomSheetDialog.findViewById<EditText>(R.id.etCountry).toString()!!
 
-        etStartDate  = bottomSheetDialog.findViewById<EditText>(R.id.etStartDate).toString()!!
-         etEndDate  = bottomSheetDialog.findViewById<EditText>(R.id.etEndDate).toString()!!
-        currentPro  = bottomSheetDialog.findViewById<CheckBox>(R.id.checkbox1)!!
+//        etStartDate  = bottomSheetDialog.findViewById<TextView>(R.id.etStartDate).toString()!!
+//         etEndDate  = bottomSheetDialog.findViewById<TextView>(R.id.etEndDate).toString()!!
+
+        bottomSheetDialog.findViewById<TextView>(R.id.etStartDate)!!.setOnClickListener {
+            etStartDate = TimeManager(requireContext()).selectDateManager(requireContext()).toString()
+
+        }
+
+        bottomSheetDialog.findViewById<TextView>(R.id.etEndDate)!!.setOnClickListener {
+            etEndDate = TimeManager(requireContext()).selectDateManager(requireContext()).toString()
+
+        }
+
+
+        bottomSheetDialog.findViewById<CheckBox>(R.id.checkbox1)!!
+            .setOnCheckedChangeListener { compoundButton, b ->
+            if (b){
+                currentPro = true
+                Log.d("check","Checked")
+            }else{
+                currentPro = false
+                Log.d("check","UnChecked")
+            }
+
+        }
 
 
         val imageCross: ImageView = bottomSheetDialog.findViewById(R.id.imageCross)!!
 
 
         btnSubmit.setOnClickListener {
-            apiAddExperience(etTitle,etCompany,etLocation,etCountry,   etStartDate,etEndDate)
+            lifecycleScope.launch {
+                apiAddExperience(etTitle,etCompany,etLocation,etCountry, currentPro,  etStartDate,etEndDate)
+            }
+
 
             bottomSheetDialog.dismiss()
 
@@ -115,14 +145,14 @@ lateinit var etEndDate : String
         }
     }
 
-    private suspend fun apiAddExperience(etTitle: String, etCompany: String, etLocation: String, etCountry: String, etStartDate: String, etEndDate: String) {
+    private suspend fun apiAddExperience(etTitle: String, etCompany: String, etLocation: String, etCountry: String,currentPro :Boolean, etStartDate: String, etEndDate: String) {
         var user_id : String = commonUtils.getUserId().toString()
         var profile_id : String = "1"
 
 
         LoadingUtils.showDialog(requireContext(),true)
 
-        viewModel.apiAddExperience(user_id,profile_id,etCompany,etTitle,etLocation,etCountry,etStartDate,etEndDate){
+        viewModel.apiAddExperience(user_id,profile_id,etCompany,etTitle,etLocation,etCountry,currentPro ,etStartDate,etEndDate){
             when(it){
                 is NetworkResult.Success -> {
                     LoadingUtils.hideDialog()

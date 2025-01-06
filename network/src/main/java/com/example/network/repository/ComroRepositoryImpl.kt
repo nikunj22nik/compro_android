@@ -171,7 +171,7 @@ class ComroRepositoryImpl @Inject constructor(private val api:ComroApi) :ComroRe
         title: String,
         location: String,
         country: String,
-        currently_prof: String,
+        currently_prof: Boolean,
         start_date: String,
         end_date: String,
 
@@ -238,7 +238,7 @@ class ComroRepositoryImpl @Inject constructor(private val api:ComroApi) :ComroRe
         title: String,
         location: String,
         country: String,
-        currently_prof: String,
+        currently_prof: Boolean,
         start_date: String,
         end_date: String,
         description: String,

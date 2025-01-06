@@ -48,7 +48,7 @@ interface ComroApi {
         @Field("company") company : String,
         @Field("title") title :String,
         @Field("location") location : String,
-        @Field("currently_prof") currently_prof :String,
+        @Field("currently_prof") currently_prof :Boolean,
         @Field("start_date") start_date : String,
         @Field("end_date") end_date : String
     ) :Response<JsonObject>
@@ -64,7 +64,7 @@ interface ComroApi {
         @Field("company") company : String,
         @Field("title") title :String,
         @Field("location") location : String,
-        @Field("currently_prof") currently_prof :String,
+        @Field("currently_prof") currently_prof :Boolean,
         @Field("start_date") start_date : String,
         @Field("end_date") end_date : String
     ) :Response<JsonObject>

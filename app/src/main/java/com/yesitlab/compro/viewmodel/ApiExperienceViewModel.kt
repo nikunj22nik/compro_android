@@ -17,7 +17,7 @@ class ApiExperienceViewModel  @Inject constructor(private val repository: ComroR
          title :String,
          location: String,
          country :String,
-         currently_prof :String,
+         currently_prof :Boolean,
          start_date :String,
          end_date :String,
         successCallback: (response: NetworkResult<Pair<String, Int>>) -> Unit
