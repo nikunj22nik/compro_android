@@ -17,6 +17,7 @@ import com.example.network.CommonUtild
 import com.example.network.NetworkResult
 import com.hbb20.countrypicker.dialog.launchCountryPickerDialog
 import com.hbb20.countrypicker.models.CPCountry
+import com.yesitlab.compro.BaseApplication
 import com.yesitlab.compro.JarvisLoader
 import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.R
@@ -147,9 +148,16 @@ class CreateAnAccountFragment : Fragment(), OnClickListener {
 
         eyeHideShow()
         binding.rlRegister.setOnClickListener {
-           lifecycleScope.launch {
-               callingSubmitApi()
-           }
+            if (BaseApplication.isOnline(requireContext())){
+                lifecycleScope.launch {
+                    callingSubmitApi()
+                }
+
+            }else{
+                ErrorMsgBox.alertError(context, "Please check your network")
+            }
+
+
         }
     }
 
@@ -222,13 +230,13 @@ class CreateAnAccountFragment : Fragment(), OnClickListener {
             binding.imgShowPass1.visibility = View.VISIBLE
             binding.imgHidePass1.visibility = View.GONE
             binding.etConfirmPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
-            binding.etConfirmPassword.setSelection(binding.etPassword.text.length)
+            binding.etConfirmPassword.setSelection(binding.etConfirmPassword.text.length)
         }
         binding.imgShowPass1.setOnClickListener {
             binding.imgShowPass1.visibility = View.GONE
             binding.imgHidePass1.visibility = View.VISIBLE
             binding.etConfirmPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-            binding.etConfirmPassword.setSelection(binding.etPassword.text.length)
+            binding.etConfirmPassword.setSelection(binding.etConfirmPassword.text.length)
         }
 
 

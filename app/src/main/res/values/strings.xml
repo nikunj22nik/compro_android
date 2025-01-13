@@ -5,7 +5,7 @@
     <string name="don_t_have_an_account">Don\'t Have An Account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="join_as_a_user_or_professional">Join As A User Or Professional</string>
-    <string name="i_m_a_professional_hiring_for_n_a_project">I\'m a professional, hiring for\n a project</string>
+    <string name="i_m_a_professional_hiring_for_n_a_project">I\'m a Professional , looking\n for a Work</string>
     <string name="register">Register</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -209,7 +209,7 @@
     <string name="visibility">Visibility</string>
     <string name="profile_settings">Profile Settings</string>
     <string name="create_account">Create Account</string>
-    <string name="i_m_a_user_looking_for_work">I\'m a user, looking for work</string>
+    <string name="i_m_a_user_looking_for_work">I\'m a User, Seeking for a\n Professional</string>
     <string name="welcome_to">WELCOME TO</string>
     <string name="_8_8_create_your_profile"><![CDATA[8/8  Create your profile]]></string>
     <string name="great_now_write_a_bio_to_tell_the_nworld_about_yourself">Great. Now write a bio to tell the\nworld about yourself.</string>

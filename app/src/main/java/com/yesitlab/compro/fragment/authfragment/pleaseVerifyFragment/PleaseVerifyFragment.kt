@@ -57,7 +57,7 @@ class PleaseVerifyFragment : Fragment() , OnClickListener{
                         findNavController().navigate(R.id.accountVerifiedFragment)
                     }
 
-                    1-> findNavController().navigate(R.id.changePasswordFragment)
+                  //  1-> findNavController().navigate(R.id.changePasswordFragment)
 
                 }
             }

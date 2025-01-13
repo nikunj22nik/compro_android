@@ -27,8 +27,6 @@ class ImageAdapter(
             .into(holder.binding.imageView)
 
 
-
-
         holder.binding.imageCancel.setOnClickListener {
             onImageDelete(imageUri)
             images.remove(imageUri)

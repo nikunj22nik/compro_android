@@ -15,12 +15,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.network.SessionManager
+import com.yesitlab.compro.AuthObserverHelper
 import com.yesitlab.compro.DonutProgressBar
 import com.yesitlab.compro.R
 import com.yesitlab.compro.activity.authActivity.AuthActivity
 import com.yesitlab.compro.base.AppConstant
 import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.databinding.ActivityHomeBinding
+import com.yesitlabs.lawco.AppContextProvider
+import com.yesitlabs.lawco.AuthEventManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         commonUtils = CommonUtils(this)
         binding = ActivityHomeBinding.inflate(LayoutInflater.from(this))
+        AppContextProvider.initialize(this)
 
         setContentView(binding.root)
         drawerVisibility()
@@ -45,6 +50,8 @@ class HomeActivity : AppCompatActivity() {
         flowType = intent.getStringExtra(AppConstant.homeActivity)
         flow()
        drawerFlow()
+
+        AuthObserverHelper.observeAuthEvents(this, AuthEventManager.authRequired)
 
     }
 
@@ -60,26 +67,36 @@ class HomeActivity : AppCompatActivity() {
             navController?.navigate(R.id.professionalContactInfoFragment)
             binding.main.close()
         }
+        findViewById<View>(R.id.textAgency).setOnClickListener{
+            navController?.navigate(R.id.agencyFragment)
+            binding.main.close()
+        }
+
         findViewById<View>(R.id.textProfileVisibility).setOnClickListener{
             navController?.navigate(R.id.profileVisibilityFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textPasswordSecurity).setOnClickListener{
             navController?.navigate(R.id.passwordAndSecurityFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textLogOut).setOnClickListener{
             logOutDialog()
             binding.main.close()
         }
+
         findViewById<View>(R.id.textDeleteAccount).setOnClickListener{
             deleteDialog()
             binding.main.close()
         }
+
         findViewById<View>(R.id.textTransaction).setOnClickListener{
             navController?.navigate(R.id.transactionFragment)
             binding.main.close()
         }
+
         findViewById<View>(R.id.textMyProfile).setOnClickListener{
             if (commonUtils.getUserType() == AppConstant.Professional){
                 navController?.navigate(R.id.professionalMyProfileFragment)
@@ -106,17 +123,25 @@ class HomeActivity : AppCompatActivity() {
         }
         yes.setOnClickListener {
             postDialog.dismiss()
-            val intent = Intent(this,AuthActivity::class.java)
+//            val intent = Intent(this,AuthActivity::class.java)
+//            intent.putExtra(AppConstant.loginFragment,AppConstant.homeActivity)
+//            startActivity(intent)
+//              finish()
+
+            var sessionManager = CommonUtils(this)
+            sessionManager.setUserId(-1)
+            var intent  = Intent(this,AuthActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             intent.putExtra(AppConstant.loginFragment,AppConstant.homeActivity)
-            startActivity(intent)
-              finish()
+           startActivity(intent)
+            finish()
 
 
         }
         postDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         postDialog.show()
-
     }
+
     private fun deleteDialog() {
         val postDialog = Dialog(this)
         postDialog.setContentView(R.layout.alert_delete_dialog)
@@ -145,13 +170,17 @@ class HomeActivity : AppCompatActivity() {
     private fun flow() {
         val navController = supportFragmentManager.findFragmentById(R.id.fragmentMainContainerView)
             ?.findNavController()
+        if(1 ==1 ){
+            navController?.navigate(R.id.bigOpportunityFragment)
+        }
+
         if (commonUtils.getUserType() == AppConstant.Professional && flowType == "Professional") {
 
             navController?.navigate(R.id.bigOpportunityFragment)
         } else if (commonUtils.getUserType() == AppConstant.User && flowType == "User") {
             navController?.navigate(R.id.homeFragment)
         } else if (commonUtils.getUserType() == AppConstant.Professional && flowType == "login") {
-            navController?.navigate(R.id.homeFragment)
+            navController?.navigate(R.id.bigOpportunityFragment)
         } else if (commonUtils.getUserType() == AppConstant.User && flowType == "login") {
             navController?.navigate(R.id.homeFragment)
         }

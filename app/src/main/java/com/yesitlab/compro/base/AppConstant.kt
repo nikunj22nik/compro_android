@@ -17,6 +17,8 @@ class AppConstant {
         var currentPlan: String? = "currentPlan"
         var bigOpportunity: String? = "bigOpportunity"
 
+        var anotherUserPosition : String = "anotherUserPosition";
+
         var baseUrl : String = "https://headfieldstaging.com/comro-application/api/"
 
     }

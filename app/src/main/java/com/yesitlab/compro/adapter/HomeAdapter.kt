@@ -28,9 +28,9 @@ class HomeAdapter(var context: Context, var list : MutableList<HomeResponse>, pr
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val currentItem = list[position]
 
-        if (currentItem.title != null) {
-            holder.binding.textProfession.text = currentItem.title
-        }
+//        if (currentItem.title != null) {
+//            holder.binding.textProfession.text = currentItem.title
+//        }
 
         if (currentItem.image != null) {
             Glide.with(context)
@@ -41,7 +41,7 @@ class HomeAdapter(var context: Context, var list : MutableList<HomeResponse>, pr
         }
 
         if (currentItem.firstName != null  && currentItem.lastName != null) {
-            holder.binding.textName.text = "$currentItem.firstName $currentItem.lastName"
+            holder.binding.textName.text = currentItem.firstName + " " + currentItem.lastName
         }
 
         if (currentItem.email != null) {
@@ -65,9 +65,31 @@ class HomeAdapter(var context: Context, var list : MutableList<HomeResponse>, pr
 
         // Set the RatingBar rating by converting the string rating to float
 
+//        if (currentItem.skills[position].skill_user != null){
+//            val stringArray = currentItem.skills[position].skill_user.split(",").toMutableList()
+//
+//// Now stringArray contains ["CSS", "HTML", "PHP", "JavaScript"]
+//// You can print each element
+//
+//            val childAdapter = SkillPreviewAdapter( stringArray)
+//            holder.binding.recyclerViewSkills.setAdapter(childAdapter)
+//
+//
+//        }
 
-//        val childAdapter = SkillPreviewAdapter(currentItem.skills[position].skill_user ?: mutableListOf())
-//        holder.binding.recyclerViewSkills.setAdapter(childAdapter)
+        if (position < currentItem.skills.size) {
+            val skillUser = currentItem.skills[position].skill_user
+            if (skillUser != null) {
+                val stringArray = skillUser.split(",").toMutableList()
+
+                val childAdapter = SkillPreviewAdapter(stringArray)
+                holder.binding.recyclerViewSkills.adapter = childAdapter
+            }
+        }
+
+
+
+
 
    holder.binding.textViewButton.setOnClickListener{
        listner.itemClick(position)

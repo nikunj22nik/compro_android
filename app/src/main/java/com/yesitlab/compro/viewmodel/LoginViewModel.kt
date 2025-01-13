@@ -10,6 +10,20 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(private val repository: ComroRepository): ViewModel() {
 
 
+//    suspend fun apiLogin(
+//
+//        email :String,
+//        password :String,
+//
+//        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+//    ){
+//
+//        repository.apiLogin( email, password ){
+//            successCallback(it)
+//        }
+//
+//
+//    }
     suspend fun apiLogin(
 
         email :String,

@@ -1,21 +1,31 @@
 package com.yesitlab.compro.fragment.authfragment.forgetPasswordFragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.network.NetworkResult
+import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.R
 import com.yesitlab.compro.base.AppConstant
 import com.yesitlab.compro.base.ErrorMsgBox
 import com.yesitlab.compro.databinding.FragmentForgotPasswordBinding
+import com.yesitlab.compro.viewmodel.ForgotPasswordViewModel
+import com.yesitlab.compro.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
-
+@AndroidEntryPoint
 class ForgotPasswordFragment : Fragment() , OnClickListener{
 private lateinit var binding: FragmentForgotPasswordBinding
+    private lateinit var viewModel : ForgotPasswordViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +39,8 @@ private lateinit var binding: FragmentForgotPasswordBinding
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentForgotPasswordBinding.inflate(LayoutInflater.from(requireContext()),container,false)
+        viewModel = ViewModelProvider(this)[ForgotPasswordViewModel::class.java]
+
         return binding.root
     }
 
@@ -42,9 +54,9 @@ private lateinit var binding: FragmentForgotPasswordBinding
         when(p0?.id){
             R.id.rlRegister->{
                 if (validateInput()){
-                val bundle = Bundle()
-                bundle.putInt(AppConstant.verificationType,1)
-                findNavController().navigate(R.id.pleaseVerifyFragment,bundle)
+                    lifecycleScope.launch {
+                        apiForgot()
+                    }
                 }
             }
             R.id.imageBackButton->{
@@ -53,13 +65,37 @@ private lateinit var binding: FragmentForgotPasswordBinding
         }
     }
 
+    suspend fun apiForgot(){
+        LoadingUtils.showDialog(requireContext(),true)
+        viewModel.apiForgotPasswordSendRequest(binding.etEmailAddress.text.trim().toString()){
+         when(it){
+             is NetworkResult.Success -> {
+                 LoadingUtils.hideDialog()
+                 it.message?.let { it1 -> LoadingUtils.showErrorDialog(requireContext(), it1) }
+                 val bundle = Bundle()
+                 bundle.putInt(AppConstant.verificationType,1)
+                 findNavController().navigate(R.id.pleaseVerifyFragment,bundle)
+
+             }
+             is NetworkResult.Error -> {
+                 LoadingUtils.hideDialog()
+                 LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+             }
+             is NetworkResult.Loading -> TODO()
+
+         }
+
+
+        }
+
+
+    }
+
+
     fun validateInput(): Boolean {
 
         val email = binding.etEmailAddress.text.toString().trim()
-
-
-
-
         // Validate Email
         if (email.isEmpty()) {
             showErrorDialog("Please enter email")

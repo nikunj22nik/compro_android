@@ -12,10 +12,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.network.NetworkResult
+import com.example.network.apiModel.HomeResponse
 import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.OnItemClickListener
 import com.yesitlab.compro.R
 import com.yesitlab.compro.adapter.HomeAdapter
+import com.yesitlab.compro.base.AppConstant
 import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.databinding.FragmentHomeBinding
 import com.yesitlab.compro.model.HomeModel
@@ -29,19 +31,8 @@ lateinit var  binding: FragmentHomeBinding
 var homeAdapter: HomeAdapter? = null
 
     var currentPage : Int = 1;
-    var list : MutableList<HomeModel> = mutableListOf()
-    var list1 : MutableList<String> = mutableListOf()
-    private val skillsList1 = mutableListOf(
-        "Android", "Kotlin", "Java", "Python", "Swift", "React", "Node.js",
-        "Flutter", "UI/UX", "Machine Learning", "Data Science", "C++", "SQL",
-        "JavaScript", "Cloud Computing", "DevOps", "Blockchain", "Cybersecurity"
-    )
-    private val skillsList2 = mutableListOf(
-        "Android", "Kotlin", "Java"
-    )
-    private val skillsList3 = mutableListOf(
-        "Android"
-    )
+    var list : MutableList<HomeResponse> = mutableListOf()
+
 
     private lateinit var viewModel : HomeViewModel
     private lateinit var commonUtils: CommonUtils
@@ -74,14 +65,18 @@ var homeAdapter: HomeAdapter? = null
         lifecycleScope.launch {
             homeApi(currentPage)
         }
+
         binding.scrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY == v.getChildAt(0).measuredHeight - v.measuredHeight) {
+                currentPage++
                 lifecycleScope.launch{
                     homeApi(currentPage)
                 }
 
             }
         })
+
+
 
     }
 
@@ -100,8 +95,7 @@ var homeAdapter: HomeAdapter? = null
         requireActivity().onBackPressedDispatcher.addCallback(requireActivity(), callback)
     }
     private fun initialize() {
-        homeAdapter = HomeAdapter(requireContext(), mutableListOf(),this)
-        binding.recyclerViewHomePage.setAdapter(homeAdapter)
+
        // listOfHomeModel()
        // homeAdapter!!.updateItems(list)
 
@@ -110,7 +104,7 @@ var homeAdapter: HomeAdapter? = null
 
 
 
-
+/*
     private fun listOfHomeModel() {
         list.add(
             HomeModel(
@@ -138,8 +132,18 @@ var homeAdapter: HomeAdapter? = null
         )
     }
 
+ */
+
     override fun itemClick(position: Int) {
-findNavController().navigate(R.id.anotherUserProfileFragment)
+        var bundle = Bundle()
+
+        val homeResponse = list[position] // Get the HomeResponse at the clicked position
+        bundle.putParcelable("homeResponse", homeResponse) // Put it in the bundle
+
+        // Navigate to AnotherUserProfileFragment and pass the bundle
+        findNavController().navigate(R.id.anotherUserProfileFragment, bundle)
+//        bundle.putInt(AppConstant.anotherUserPosition,position)
+//findNavController().navigate(R.id.anotherUserProfileFragment,bundle)
     }
 
 
@@ -155,14 +159,21 @@ var userID  = commonUtils.getUserId()
                     var data = it.data
 
                     if (data != null) {
-                        homeAdapter?.updateItems(data)
-                        homeAdapter?.notifyDataSetChanged()
+                        list.addAll(data)
+                        homeAdapter = HomeAdapter(requireContext(), mutableListOf(),this)
+                        binding.recyclerViewHomePage.setAdapter(homeAdapter)
+                        homeAdapter?.updateItems(list)
                     }
+
+                    Log.d("i'm Here", "succeess")
+
+                    Log.d("dataVipin",data.toString())
 
                 }
                 is NetworkResult.Error -> {
                     LoadingUtils.hideDialog()
-
+                    Log.d("i'm Here", "failed")
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
                 }
                 is NetworkResult.Loading -> TODO()
 

@@ -8,15 +8,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.network.NetworkResult
+import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.R
+import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.base.ErrorMsgBox
 import com.yesitlab.compro.databinding.FragmentPasswordAndSecurityBinding
+import com.yesitlab.compro.viewmodel.ApiEducationViewModel
+import com.yesitlab.compro.viewmodel.ResetPasswordViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
-
+@AndroidEntryPoint
 class PasswordAndSecurityFragment : Fragment() {
     lateinit var binding: FragmentPasswordAndSecurityBinding
+
+     lateinit var viewModel : ResetPasswordViewModel
+
+     lateinit var commonUtils: CommonUtils
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,6 +51,12 @@ class PasswordAndSecurityFragment : Fragment() {
             container,
             false
         )
+
+        viewModel = ViewModelProvider(this)[ResetPasswordViewModel::class.java]
+
+        commonUtils = CommonUtils(requireContext())
+
+
         return binding.root
     }
 
@@ -43,12 +66,47 @@ class PasswordAndSecurityFragment : Fragment() {
 
         binding.submit.setOnClickListener {
             if(validateInput()){
-                ErrorMsgBox.alertError(requireContext(), "Password Change Successfully!")
+                lifecycleScope.launch {
+                    apiResetPassword(binding.etCurrentPassword,binding.etNewPassword)
+                }
+
             }
 
         }
 
     }
+
+
+    private suspend fun apiResetPassword(currentPassword : EditText,newPassword:EditText) {
+        var user_id : String = commonUtils.getUserId().toString()
+        var old = currentPassword.text.trim().toString()
+        var new = newPassword.text.trim().toString()
+
+        LoadingUtils.showDialog(requireContext(),true)
+
+        viewModel.apiResetPassword(user_id,old,new){
+            when(it){
+                is NetworkResult.Success -> {
+                    LoadingUtils.hideDialog()
+
+it.data?.let {it1->  LoadingUtils.showSuccessDialog(requireContext(), it1) }
+
+                }
+                is NetworkResult.Error -> {
+                    LoadingUtils.hideDialog()
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+                }
+                is NetworkResult.Loading -> TODO()
+
+            }
+        }
+
+
+    }
+
+
+
 
     private fun eyeHideShow() {
         binding.imgHidePass.setOnClickListener {
@@ -115,10 +173,6 @@ class PasswordAndSecurityFragment : Fragment() {
         // Validate Confirm Password
         if (confirmPassword.isEmpty()) {
             showErrorDialog("Please confirm your password")
-            binding.etNewPassword.requestFocus()
-            return false
-        } else if (password != confirmPassword) {
-            showErrorDialog("Passwords do not match")
             binding.etNewPassword.requestFocus()
             return false
         }

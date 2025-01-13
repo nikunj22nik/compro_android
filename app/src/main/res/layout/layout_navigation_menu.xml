@@ -94,6 +94,24 @@
         app:drawableStartCompat="@drawable/lock_icon" />
 
     <View
+        android:id="@+id/viewAgencyVisibility"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#C8C8C8" />
+    <TextView
+        android:id="@+id/textAgency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_13sdp"
+        android:fontFamily="@font/lato"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:text="Agency"
+        android:textColor="#434343"
+        android:textSize="@dimen/_14ssp"
+        app:drawableStartCompat="@drawable/lock_icon" />
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:background="#C8C8C8" />

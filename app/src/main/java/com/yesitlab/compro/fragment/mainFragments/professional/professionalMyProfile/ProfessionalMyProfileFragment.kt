@@ -29,6 +29,7 @@ import com.bumptech.glide.Glide
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.ChipGroup
+import com.yesitlab.compro.Click
 import com.yesitlab.compro.OnItemClickListener
 import com.yesitlab.compro.OnItemClickListener1
 import com.yesitlab.compro.R
@@ -187,10 +188,10 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
         experiencePreviewAdapter!!.updateItem(experiencePreviewList)
 
         // education
-        educationPreviewAdapter = EducationPreviewAdapter(requireContext(), mutableListOf(), this,true)
-        binding.recyclerViewEducation.setAdapter(educationPreviewAdapter)
-        educationPreview()
-        educationPreviewAdapter!!.updateItem(educationPreviewList)
+//        educationPreviewAdapter = EducationPreviewAdapter(requireContext(), mutableListOf(), this,true)
+//        binding.recyclerViewEducation.setAdapter(educationPreviewAdapter)
+//        educationPreview()
+//        educationPreviewAdapter!!.updateItem(educationPreviewList)
 
         // Skill
 
@@ -199,11 +200,11 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
         skillPreviewList()
 
 
-        certificatePreviewAdapter =
-            CertificatePreviewAdapter(requireContext(), mutableListOf(), this,true)
-        binding.recyclerViewCertificate.setAdapter(certificatePreviewAdapter)
-        certificateList()
-        certificatePreviewAdapter?.updateItem(certificatePreviewList)
+//        certificatePreviewAdapter =
+//            CertificatePreviewAdapter(requireContext(), mutableListOf(), this,true)
+//        binding.recyclerViewCertificate.setAdapter(certificatePreviewAdapter)
+//        certificateList()
+//        certificatePreviewAdapter?.updateItem(certificatePreviewList)
 
 
 
@@ -627,7 +628,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this picture detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this picture detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
             }
@@ -642,7 +651,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this location detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this location detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
             }
@@ -657,7 +674,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this overview detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this overview detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
             }
@@ -679,7 +704,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this skill detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this skill detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
 
@@ -695,7 +728,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this resume detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this resume detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
             }
@@ -727,7 +768,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this education detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this education detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
             }
@@ -742,7 +791,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this experience detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this experience detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
 
@@ -758,7 +815,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
                     },
                     onDeleteClicked = {
                         // Custom action for delete
-                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this certificate detail?")
+                        ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this certificate detail?",
+                            object : Click {
+                                override fun confirm() {
+
+
+
+                                }
+
+                            })
                     })
 
             }
@@ -776,7 +841,15 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
             },
             onDeleteClicked = {
                 // Custom action for delete
-                ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this portfolio detail?")
+                ErrorMsgBox.alertDeleteEdit(requireContext(),"Are you sure you want to delete this portfolio detail?",
+                    object : Click {
+                        override fun confirm() {
+
+
+
+                        }
+
+                    })
             })
     }
 

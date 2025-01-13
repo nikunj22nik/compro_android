@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.WindowManager
 import android.widget.TextView
+import com.yesitlab.compro.Click
 import com.yesitlab.compro.R
 
 class ErrorMsgBox {
@@ -26,7 +27,7 @@ class ErrorMsgBox {
             dialog.show()
         }
 
-        fun  alertDeleteEdit(context: Context?, msg:String?){
+        fun  alertDeleteEdit(context: Context?, msg:String?,listner: Click){
             val dialog= context?.let { Dialog(it, R.style.BottomSheetDialog) }
             dialog?.setCancelable(false)
             dialog?.setContentView(R.layout.alert_delete_edit)
@@ -40,6 +41,8 @@ class ErrorMsgBox {
             val cancel: TextView  =dialog.findViewById(R.id.cancel)
             tvTitle.text=msg
             confirm.setOnClickListener {
+                listner.confirm()
+
                 dialog.dismiss()
             }
             cancel.setOnClickListener {

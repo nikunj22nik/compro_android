@@ -16,28 +16,31 @@ class ExperienceAdapter(var list : List<AddExperienceModel>,var context: Context
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExperienceViewHolder {
-      val binding = LayoutExperiencesBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = LayoutExperiencesBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ExperienceViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-       return list.size
+        return list.size
     }
 
     @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: ExperienceViewHolder, position: Int) {
-       val currentItem = list[position]
-      holder.binding.textExperienceTitle.text = currentItem.textExperienceTitle
-      holder.binding.textCompanyName.text = currentItem.textCompanyName
-      //holder.binding.textDate.text = currentItem.textDate
-        holder.binding.textDate.setResizableText(currentItem.textDate, 2, true)
+        val currentItem = list[position]
+        holder.binding.textExperienceTitle.text = currentItem.title
+        holder.binding.textCompanyName.text = currentItem.company
+        //holder.binding.textDate.text = currentItem.textDate
+        holder.binding.textDate.setResizableText(currentItem.start_date + " "+ currentItem.end_date + " "+ currentItem.location + " "+ currentItem.country, 2, true)
         holder.binding.imageEdit.setOnClickListener{
-            listner.itemClick(position)
+            currentItem.id?.let { it1 -> listner.itemClick(it1) }
         }
 
     }
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(newData : List<AddExperienceModel>){
+    //    this.list.clear()
+//        data.addAll(newData)
+
         this.list = newData
         notifyDataSetChanged()
     }

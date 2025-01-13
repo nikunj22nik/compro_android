@@ -247,18 +247,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textStartDate">
 
 
-        <EditText
+        <TextView
             android:id="@+id/etStartDate"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:autofillHints=""
             android:background="@null"
             android:textSize="@dimen/_9ssp"
             android:fontFamily="@font/lato"
-            android:hint="@string/_1_1_2024"
-            android:inputType="number"
+            android:text="Ex:2024-01-01"
             android:paddingVertical="@dimen/_10sdp"
             android:textColor="#828282"
             android:textColorHint="#828282"
@@ -292,18 +290,16 @@
         app:layout_constraintStart_toEndOf="@+id/cvFieldStudy"
         app:layout_constraintTop_toBottomOf="@+id/textEndDate">
 
-        <EditText
+        <TextView
             android:id="@+id/etEndDate"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:autofillHints=""
             android:background="@null"
             android:textSize="@dimen/_9ssp"
             android:fontFamily="@font/lato"
-            android:hint="@string/_11_10_2024"
-            android:inputType="text"
+            android:text="Ex:2024-01-01"
             android:paddingVertical="@dimen/_10sdp"
             android:textColor="#828282"
             android:textColorHint="#828282"

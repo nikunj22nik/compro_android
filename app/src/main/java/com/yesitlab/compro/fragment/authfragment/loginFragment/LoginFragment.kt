@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.network.CommonUtild
 import com.example.network.NetworkResult
+import com.example.network.SessionManager
 import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.R
 import com.yesitlab.compro.activity.homeActivity.HomeActivity
@@ -37,6 +38,7 @@ class LoginFragment : Fragment(), OnClickListener {
     private lateinit var viewModel : LoginViewModel
     private lateinit var commonUtild: CommonUtild
     private lateinit var commonUtils: CommonUtils
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,7 @@ class LoginFragment : Fragment(), OnClickListener {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         commonUtild = CommonUtild(requireContext())
         commonUtils = CommonUtils(requireContext())
+        sessionManager = SessionManager(requireContext())
 
 
 
@@ -104,7 +107,7 @@ class LoginFragment : Fragment(), OnClickListener {
             }
         }
     }
-
+/*
      suspend fun loginApi() {
       val email = binding.etEmailUsername.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
@@ -116,7 +119,7 @@ class LoginFragment : Fragment(), OnClickListener {
                     LoadingUtils.hideDialog()
 
 
-
+it.data?.let { it1-> sessionManager.setToken(it1.first) }
                     it.data?.let { it1 -> commonUtils.setUserId(it1.second) }
 
                     val intent = Intent(requireActivity(), HomeActivity::class.java)
@@ -136,6 +139,41 @@ class LoginFragment : Fragment(), OnClickListener {
         }
     }
 
+ */
+
+    suspend fun loginApi() {
+        val email = binding.etEmailUsername.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+
+
+
+
+        LoadingUtils.showDialog(requireContext(),true)
+        viewModel.apiLogin(email,password){
+            when(it){
+                is NetworkResult.Success -> {
+                    LoadingUtils.hideDialog()
+
+
+                    it.data?.let { it1-> sessionManager.setToken(it1.first) }
+                    it.data?.let { it1 -> commonUtils.setUserId(it1.second) }
+
+                    val intent = Intent(requireActivity(), HomeActivity::class.java)
+                    intent.putExtra(AppConstant.homeActivity, "login")
+                    startActivity(intent)
+                    requireActivity().finish()
+
+                }
+                is NetworkResult.Error -> {
+                    LoadingUtils.hideDialog()
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+                }
+                is NetworkResult.Loading -> TODO()
+
+            }
+        }
+    }
     fun eyeHideShow(){
         binding.imgHidePass.setOnClickListener{
             binding.imgShowPass.visibility = View.VISIBLE

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import com.example.network.apiModel.HomeResponse
 import com.yesitlab.compro.OnItemClickListener
 import com.yesitlab.compro.OnItemClickListener1
 import com.yesitlab.compro.R
@@ -42,13 +43,15 @@ class AnotherUserProfileFragment : Fragment(), OnClickListener, OnItemClickListe
     private var image_status1 = ""
     private val portfolioList: MutableList<PortfolioModel> = mutableListOf()
 
+     var homeResponse : HomeResponse? = null
+
     private var skillList: MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
+             homeResponse = arguments?.getParcelable<HomeResponse>("homeResponse")
+
     }
 
     override fun onCreateView(
@@ -79,19 +82,47 @@ class AnotherUserProfileFragment : Fragment(), OnClickListener, OnItemClickListe
 
         initialize()
         adaptersInitialize()
-        var text =
-            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BCContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC....."
-
-        binding.textDescription.setResizableText(text, 2, true)
+//        var text =
+//            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BCContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC....."
+//
+//        binding.textDescription.setResizableText(text, 2, true)
 
     }
 
     private fun initialize() {
         // Skill
 
-        skillPreviewAdapter = SkillPreviewAdapter(skillList)
-        binding.recyclerViewSkill.setAdapter(skillPreviewAdapter)
-        skillPreviewList()
+
+
+        homeResponse.let {
+            binding.textName.text = it?.firstName + " " + it?.lastName
+       binding.textProfilePhone.text = it?.mobile
+            binding.textProfileEmail.text = it?.email
+            binding.profileLocation.text = it?.country
+            binding.ratingBar.rating = it?.rating_count?.toFloat() ?:0.0f
+binding.textRatingNumber.text = it?.rating_count.toString()
+
+            binding.textDescription.text = it?.title
+            if (it != null) {
+                binding.textDescription.setResizableText(it.title, 2, true)
+            }
+
+            val skillUser = it?.skills?.get(0)?.skill_user
+            if (skillUser != null) {
+                val stringArray = skillUser.split(",").toMutableList()
+
+                skillPreviewAdapter = SkillPreviewAdapter(stringArray)
+                binding.recyclerViewSkill.setAdapter(skillPreviewAdapter)
+
+
+                skillPreviewAdapter?.notifyDataSetChanged()
+
+            }
+        }
+
+
+
+      //  skillPreviewList()
 
     }
 
@@ -218,24 +249,42 @@ class AnotherUserProfileFragment : Fragment(), OnClickListener, OnItemClickListe
 
     private fun adaptersInitialize() {
         // experience
+
+
+
+
+
+
+
         experiencePreviewAdapter =
             ExperiencePreviewAdapter(requireContext(), mutableListOf(), this, false)
         binding.recyclerViewExperience.setAdapter(experiencePreviewAdapter)
         experiencePreview()
         experiencePreviewAdapter!!.updateItem(experiencePreviewList)
 
+
+
+
         // education
         educationPreviewAdapter =
             EducationPreviewAdapter(requireContext(), mutableListOf(), this, false)
         binding.recyclerViewEducation.setAdapter(educationPreviewAdapter)
-        educationPreview()
-        educationPreviewAdapter!!.updateItem(educationPreviewList)
+       // educationPreview()
+        homeResponse?.let { educationPreviewAdapter!!.updateItem(it.education) }
+
+
+
+//        educationPreviewAdapter =
+//            EducationPreviewAdapter(requireContext(), mutableListOf(), this, false)
+//        binding.recyclerViewEducation.setAdapter(educationPreviewAdapter)
+//        educationPreview()
+//        educationPreviewAdapter!!.updateItem(educationPreviewList)
 
         // Skill
 
-        skillPreviewAdapter = SkillPreviewAdapter(skillList)
-        binding.recyclerViewSkill.setAdapter(skillPreviewAdapter)
-        skillPreviewList()
+//        skillPreviewAdapter = SkillPreviewAdapter(skillList)
+//        binding.recyclerViewSkill.setAdapter(skillPreviewAdapter)
+//        skillPreviewList()
 
 
         certificatePreviewAdapter =

@@ -1,6 +1,7 @@
 package com.example.network.di
 
 import android.content.Context
+import android.util.Log
 import com.example.network.CommonUtild
 import com.example.network.auth.AuthInterceptor
 import com.example.network.remote.ComroApi
@@ -16,6 +17,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 
 
 const val COMRO_BASE_URL = "https://headfieldstaging.com/comro-application/api/"
@@ -47,8 +49,14 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
-        val loggingInterceptor = HttpLoggingInterceptor()
+
+        val loggingInterceptor = HttpLoggingInterceptor { message -> Log.d("RetrofitLog", message) }
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+//        if (BuildConfig.DEBUG) {
+//            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+//        }else{
+//            loggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
+//        }
 
         return OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
