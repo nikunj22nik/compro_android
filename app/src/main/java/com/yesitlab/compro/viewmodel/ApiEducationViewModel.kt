@@ -3,6 +3,7 @@ package com.yesitlab.compro.viewmodel
 import androidx.lifecycle.ViewModel
 import com.example.network.NetworkResult
 import com.example.network.repository.ComroRepository
+import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -32,7 +33,6 @@ import javax.inject.Inject
         suspend fun apiUpdateEducation(
             id: String,
             user_id :String,
-            profile_id :String,
             school :String,
             degree :String,
             fieldstudy: String,
@@ -42,8 +42,27 @@ import javax.inject.Inject
             description :String,
             successCallback: (response: NetworkResult<Pair<String, Int>>) -> Unit
         ){
-            repository.apiUpdateEducation(id,user_id, profile_id, school,degree,fieldstudy,country, start_date, end_date, description){
+            repository.apiUpdateEducation(id,user_id, school,degree,fieldstudy,country, start_date, end_date, description){
                 successCallback(it)
             }
         }
-}
+
+        suspend fun apiGetEducation(
+            jsonObject : JsonObject,
+            successCallback: (response: NetworkResult<String>) -> Unit
+        ){
+            repository.apiGetEducation(jsonObject){
+                successCallback(it)
+            }
+        }
+
+        suspend fun apiDeleteEducation(
+            jsonObject: JsonObject,successCallback: (response: NetworkResult<String>) -> Unit
+        ) {
+            repository.apiDeleteEducation(jsonObject){
+                successCallback(it)
+            }
+        }
+
+
+    }

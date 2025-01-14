@@ -256,7 +256,7 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
             when(it){
                 is NetworkResult.Success -> {
                     LoadingUtils.hideDialog()
-                    binding?.pullToRefresh?.isRefreshing = false
+                    binding.pullToRefresh.isRefreshing = false
 
                     val type = object : TypeToken<List<AddExperienceModel>>() {}.type
                     val model: List<AddExperienceModel> = Gson().fromJson(it.data, type)
@@ -265,11 +265,11 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
 
                     experienceAdapter.updateData(model)
 
-                    LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
+                 //   LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
                 }
                 is NetworkResult.Error -> {
                     LoadingUtils.hideDialog()
-                    binding?.pullToRefresh?.isRefreshing = false
+                    binding.pullToRefresh.isRefreshing = false
                     LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
 
                 }
@@ -283,31 +283,24 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
 
     private suspend fun apiDeleteExperience( id : String) {
         // var user_id : String = commonUtils.getUserId().toString()
-
         val jsonObject = JsonObject()
         jsonObject.addProperty("id", id)
-
-
         LoadingUtils.showDialog(requireContext(),true)
 
         viewModel.apiDeleteExperience(jsonObject){
             when(it){
                 is NetworkResult.Success -> {
                     LoadingUtils.hideDialog()
-                    binding?.pullToRefresh?.isRefreshing = false
 
-                    val type = object : TypeToken<List<AddExperienceModel>>() {}.type
-                    val model: List<AddExperienceModel> = Gson().fromJson(it.data, type)
 
                     // var model = Gson().fromJson<JsonObject>(it.data,AddExperienceModel::class.java)
 
-                    experienceAdapter.updateData(model)
 
-                    LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
+                    it.data?.let { it1 -> LoadingUtils.showSuccessDialog(requireContext(), it1) }
                 }
                 is NetworkResult.Error -> {
                     LoadingUtils.hideDialog()
-                    binding?.pullToRefresh?.isRefreshing = false
+
                     LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
 
                 }

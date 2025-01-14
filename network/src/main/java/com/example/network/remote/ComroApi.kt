@@ -135,7 +135,6 @@ interface ComroApi {
     suspend fun apiUpdateEducation(
         @Field("id") id :String,
         @Field("user_id") user_id : String,
-        @Field("profile_id") profile_id :String,
         @Field("school") school : String,
         @Field("degree") degree :String,
         @Field("fieldstudy") fieldstudy : String,
@@ -144,6 +143,12 @@ interface ComroApi {
         @Field("end_date") end_date : String,
         @Field("description") description :String
     ) :Response<JsonObject>
+
+    @POST("listEducation")
+    suspend fun apiGetEducation(@Body jsonObject: JsonObject) : Response<JsonObject>
+
+    @POST("deleteEducation")
+    suspend fun apiDeleteEducation(@Body jsonObject: JsonObject) : Response<JsonObject>
 
 
     @Multipart

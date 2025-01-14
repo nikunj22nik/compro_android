@@ -5,11 +5,6 @@ import com.example.network.apiModel.HomeResponse
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Part
 
 interface ComroRepository {
 
@@ -110,7 +105,6 @@ interface ComroRepository {
     suspend fun apiUpdateEducation(
         id :String,
         user_id :String,
-        profile_id :String,
         school :String,
         degree :String,
         fieldstudy: String,
@@ -154,9 +148,10 @@ interface ComroRepository {
         successCallback: (response: NetworkResult<String>) -> Unit
     )
 
-
-
-
+    suspend fun apiDeleteEducation(
+        jsonObject : JsonObject,
+        successCallback: (response: NetworkResult<String>) -> Unit
+    )
 
     suspend fun apiAddSkill(
         JsonObject : JsonObject,
@@ -179,4 +174,8 @@ interface ComroRepository {
         successCallback: (response: NetworkResult<String>) -> Unit
     )
 
+    suspend fun apiGetEducation(
+        jsonObject : JsonObject,
+        successCallback: (response: NetworkResult<String>) -> Unit
+    )
 }
