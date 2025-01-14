@@ -43,6 +43,7 @@ import com.yesitlab.compro.base.BottomSheetHelper
 import com.yesitlab.compro.base.ErrorMsgBox
 import com.yesitlab.compro.base.Path
 import com.yesitlab.compro.databinding.FragmentProfessionalMyProfileBinding
+import com.yesitlab.compro.model.AddExperienceModel
 import com.yesitlab.compro.model.CertificatePreviewModel
 import com.yesitlab.compro.model.EducationPreviewModel
 import com.yesitlab.compro.model.ExperiencePreviewModel
@@ -53,7 +54,7 @@ import java.io.File
 class ProfessionalMyProfileFragment : Fragment(), OnClickListener, OnItemClickListener, OnItemClickListener1 {
 lateinit var  binding : FragmentProfessionalMyProfileBinding
     private var experiencePreviewAdapter: ExperiencePreviewAdapter? = null
-    private var experiencePreviewList: MutableList<ExperiencePreviewModel> = mutableListOf()
+    private var experiencePreviewList: List<AddExperienceModel> = mutableListOf()
     private var educationPreviewAdapter: EducationPreviewAdapter? = null
     private var educationPreviewList: MutableList<EducationPreviewModel> = mutableListOf()
     private var skillList: MutableList<String> = mutableListOf()
@@ -184,7 +185,7 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
         // experience
         experiencePreviewAdapter = ExperiencePreviewAdapter(requireContext(), mutableListOf(), this,true)
         binding.recyclerViewExperience.setAdapter(experiencePreviewAdapter)
-        experiencePreview()
+      //  experiencePreview()
         experiencePreviewAdapter!!.updateItem(experiencePreviewList)
 
         // education
@@ -260,6 +261,7 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
         }
     }
 
+/*
     private fun experiencePreview() {
         repeat(6) {
             experiencePreviewList.add(
@@ -274,6 +276,9 @@ lateinit var  binding : FragmentProfessionalMyProfileBinding
             )
         }
     }
+
+
+ */
 
     private fun bottomYourPicture() {
 

@@ -28,9 +28,17 @@ import javax.inject.Inject
             }
         }
 
+        suspend fun apiGetEducation(
+            jsonObject : JsonObject,
+            successCallback: (response: NetworkResult<String>) -> Unit
+        ) {
+            repository.apiGetEducation(jsonObject) {
+                successCallback(it)
+            }
 
+        }
 
-        suspend fun apiUpdateEducation(
+            suspend fun apiUpdateEducation(
             id: String,
             user_id :String,
             school :String,

@@ -18,6 +18,7 @@ import com.yesitlab.compro.adapter.PortfolioAdapter
 import com.yesitlab.compro.adapter.SkillPreviewAdapter
 import com.yesitlab.compro.databinding.FragmentAnotherUserProfileBinding
 import com.yesitlab.compro.databinding.LayoutLocationBinding
+import com.yesitlab.compro.model.AddExperienceModel
 import com.yesitlab.compro.model.CertificatePreviewModel
 import com.yesitlab.compro.model.EducationPreviewModel
 import com.yesitlab.compro.model.ExperiencePreviewModel
@@ -31,7 +32,7 @@ class AnotherUserProfileFragment : Fragment(), OnClickListener, OnItemClickListe
 
     private var includedLocationView: LayoutLocationBinding? = null
     private var experiencePreviewAdapter: ExperiencePreviewAdapter? = null
-    private var experiencePreviewList: MutableList<ExperiencePreviewModel> = mutableListOf()
+    private var experiencePreviewList: List<AddExperienceModel> = mutableListOf()
     private var educationPreviewAdapter: EducationPreviewAdapter? = null
     private var educationPreviewList: MutableList<EducationPreviewModel> = mutableListOf()
 
@@ -259,7 +260,7 @@ binding.textRatingNumber.text = it?.rating_count.toString()
         experiencePreviewAdapter =
             ExperiencePreviewAdapter(requireContext(), mutableListOf(), this, false)
         binding.recyclerViewExperience.setAdapter(experiencePreviewAdapter)
-        experiencePreview()
+       // experiencePreview()
         experiencePreviewAdapter!!.updateItem(experiencePreviewList)
 
 
@@ -339,6 +340,7 @@ binding.textRatingNumber.text = it?.rating_count.toString()
         }
     }
 
+    /*
     private fun experiencePreview() {
         repeat(6) {
             experiencePreviewList.add(
@@ -353,6 +355,8 @@ binding.textRatingNumber.text = it?.rating_count.toString()
             )
         }
     }
+
+     */
 
     override fun onClick(p0: View?) {
         when (p0?.id) {

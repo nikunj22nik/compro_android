@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -107,39 +108,7 @@ class LoginFragment : Fragment(), OnClickListener {
             }
         }
     }
-/*
-     suspend fun loginApi() {
-      val email = binding.etEmailUsername.text.toString().trim()
-        val password = binding.etPassword.text.toString().trim()
 
-        LoadingUtils.showDialog(requireContext(),true)
-        viewModel.apiLogin(email,password){
-            when(it){
-                is NetworkResult.Success -> {
-                    LoadingUtils.hideDialog()
-
-
-it.data?.let { it1-> sessionManager.setToken(it1.first) }
-                    it.data?.let { it1 -> commonUtils.setUserId(it1.second) }
-
-                    val intent = Intent(requireActivity(), HomeActivity::class.java)
-                    intent.putExtra(AppConstant.homeActivity, "login")
-                    startActivity(intent)
-                    requireActivity().finish()
-
-                }
-                is NetworkResult.Error -> {
-                    LoadingUtils.hideDialog()
-                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
-
-                }
-                is NetworkResult.Loading -> TODO()
-
-            }
-        }
-    }
-
- */
 
     suspend fun loginApi() {
         val email = binding.etEmailUsername.text.toString().trim()
@@ -155,8 +124,16 @@ it.data?.let { it1-> sessionManager.setToken(it1.first) }
                     LoadingUtils.hideDialog()
 
 
-                    it.data?.let { it1-> sessionManager.setToken(it1.first) }
-                    it.data?.let { it1 -> commonUtils.setUserId(it1.second) }
+                    it.data?.token?.let { it1-> sessionManager.setToken(it1) }
+                    it.data?.user_id?.let { it1 -> commonUtils.setUserId(it1) }
+                    it.data?.mobile?.let { it1 -> commonUtils.setUserPhoneNumber(it1) }
+                    it.data?.email1?.let { it1 -> commonUtils.setUserEmail(it1) }
+                    it.data?.country?.let { it1 -> commonUtils.setUserCountry(it1) }
+                    it.data?.name?.let { it1 -> commonUtils.setUserName(it1) }
+
+
+
+                    Log.d("detailsVipin","   ${commonUtils.getUserId()}    ${commonUtils.getUserEmail()} ${commonUtils.getUserCountry()}  ${commonUtils.getUserPhoneNumber()} ${commonUtils.getUserName()} ")
 
                     val intent = Intent(requireActivity(), HomeActivity::class.java)
                     intent.putExtra(AppConstant.homeActivity, "login")
@@ -188,6 +165,7 @@ it.data?.let { it1-> sessionManager.setToken(it1.first) }
             binding.etPassword.setSelection(binding.etPassword.text.length)
         }
     }
+
     fun validateInput(): Boolean {
         val email = binding.etEmailUsername.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
