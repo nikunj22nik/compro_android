@@ -115,7 +115,6 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
             } else {
                 showErrorDialog("Please Check Your Network")
             }
-
         }
     }
 
@@ -142,10 +141,6 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
         etLocation  = bottomSheetDialog.findViewById<EditText>(R.id.etLocation)!!
         etCountry = bottomSheetDialog.findViewById<EditText>(R.id.etCountry)!!
 
-//        etStartDate  = bottomSheetDialog.findViewById<TextView>(R.id.etStartDate).toString()!!
-//         etEndDate  = bottomSheetDialog.findViewById<TextView>(R.id.etEndDate).toString()!!
-
-
         bottomSheetDialog.findViewById<TextView>(R.id.etStartDate)?.setOnClickListener {
             val timeManager = TimeManager(requireContext())
             timeManager.selectDateManager { selectedDate ->
@@ -155,7 +150,6 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
             }
         }
 
-
         bottomSheetDialog.findViewById<TextView>(R.id.etEndDate)?.setOnClickListener {
             val timeManager = TimeManager(requireContext())
             timeManager.selectDateManager { selectedDate ->
@@ -164,13 +158,9 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
                 etEndDate = selectedDate
             }
         }
-
-
         currentPro = 0
-
         bottomSheetDialog.findViewById<CheckBox>(R.id.checkbox1)!!
             .setOnCheckedChangeListener { compoundButton, isChecked ->
-
                 if (isChecked){
                     currentPro = 1
                 }else{
@@ -178,41 +168,27 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
                 }
                 Log.d("check", if (isChecked) "Checked" else "Unchecked")
             }
-
-
         val imageCross: ImageView = bottomSheetDialog.findViewById(R.id.imageCross)!!
-
-
         btnSubmit.setOnClickListener {
-
             if (BaseApplication.isOnline(requireContext())) {
                 if(validateInputs(etTitle?.text?.trim().toString(),etCompany?.text?.trim().toString(),etLocation?.text?.trim().toString(),etCountry?.text?.trim().toString(),etStartDate,etEndDate,bottomSheetDialog.findViewById<CheckBox>(R.id.checkbox1))){
                     lifecycleScope.launch {
                         apiAddExperience(etTitle?.text?.trim().toString(),etCompany?.text?.trim().toString(),etLocation?.text?.trim().toString(),etCountry?.text?.trim().toString(),  etStartDate,etEndDate)
                     }
                 }
-
-
             } else {
                 showErrorDialog("Please Check Your Network")
             }
 
-
-
         }
         imageCross.setOnClickListener {
             bottomSheetDialog.dismiss()
-
         }
     }
 
     private suspend fun apiAddExperience(etTitle: String, etCompany: String, etLocation: String, etCountry: String, etStartDate: String?, etEndDate: String?) {
-        var user_id : String = commonUtils.getUserId().toString()
-        var profile_id : String = "2"
-
-
-
-
+        val user_id : String = commonUtils.getUserId().toString()
+        val profile_id : String = "2"
         LoadingUtils.showDialog(requireContext(),true)
 
         viewModel.apiAddExperience(user_id,profile_id,etCompany,etTitle,etLocation,etCountry,currentPro.toString() ,etStartDate.toString(),etEndDate.toString()){
@@ -238,8 +214,6 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
 
             }
         }
-
-
     }
 
 
@@ -265,7 +239,7 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
 
                     experienceAdapter.updateData(model)
 
-                    LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
+                 //   LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
                 }
                 is NetworkResult.Error -> {
                     LoadingUtils.hideDialog()
@@ -294,20 +268,13 @@ class AddExperienceFragment : Fragment(), OnItemClickListener, OnClickListener {
             when(it){
                 is NetworkResult.Success -> {
                     LoadingUtils.hideDialog()
-                    binding?.pullToRefresh?.isRefreshing = false
 
-                    val type = object : TypeToken<List<AddExperienceModel>>() {}.type
-                    val model: List<AddExperienceModel> = Gson().fromJson(it.data, type)
 
-                    // var model = Gson().fromJson<JsonObject>(it.data,AddExperienceModel::class.java)
-
-                    experienceAdapter.updateData(model)
-
-                    LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
+                    it.data?.let { it1 -> LoadingUtils.showSuccessDialog(requireContext(), it1) }
                 }
                 is NetworkResult.Error -> {
                     LoadingUtils.hideDialog()
-                    binding?.pullToRefresh?.isRefreshing = false
+
                     LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
 
                 }

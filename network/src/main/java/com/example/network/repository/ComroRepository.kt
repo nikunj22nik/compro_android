@@ -2,6 +2,7 @@ package com.example.network.repository
 
 import com.example.network.NetworkResult
 import com.example.network.apiModel.HomeResponse
+import com.example.network.apiModel.UserInfo
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -24,10 +25,15 @@ interface ComroRepository {
         successCallback: (response: NetworkResult<String>) -> Unit
     )
 
+//    suspend fun apiLogin(
+//        email :String,
+//        password :String,
+//        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+//    )
     suspend fun apiLogin(
         email :String,
         password :String,
-        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+        successCallback: (response: NetworkResult<UserInfo>) -> Unit
     )
 
     suspend fun apiForgotPasswordSendRequest(
@@ -169,12 +175,36 @@ interface ComroRepository {
         successCallback: (response: NetworkResult<String>) -> Unit
     )
 
+    suspend fun apiAddLocation(
+        user_id: RequestBody,
+        streetaddress: RequestBody,
+        app_suite: RequestBody,
+        city: RequestBody,
+        state: RequestBody,
+        zipcode: RequestBody,
+        dateofbirth: RequestBody,
+        professional_title: RequestBody,
+        image: MultipartBody.Part,
+        successCallback: (response: NetworkResult<String>) -> Unit
+    )
+
+
     suspend fun apiGetExperience(
         jsonObject : JsonObject,
         successCallback: (response: NetworkResult<String>) -> Unit
     )
 
+    suspend fun apiGetEducation(
+        jsonObject : JsonObject,
+        successCallback: (response: NetworkResult<String>) -> Unit
+    )
+
     suspend fun apiChoosePlan(
+        jsonObject : JsonObject,
+        successCallback: (response: NetworkResult<String>) -> Unit
+    )
+
+    suspend fun apiAddOverview(
         jsonObject : JsonObject,
         successCallback: (response: NetworkResult<String>) -> Unit
     )

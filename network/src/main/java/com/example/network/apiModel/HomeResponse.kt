@@ -3,77 +3,7 @@ package com.example.network.apiModel
 import android.os.Parcel
 import android.os.Parcelable
 
-/*
-  class HomeResponse {
 
-
-    var age: Any = ""
-       var average_rating: Int = 0
-    var certificates: MutableList<Certificate> = mutableListOf()
-      lateinit var country: String
-    var education: MutableList<Education>  = mutableListOf()
-       var email: String = " "
-      var  experience_q: Any = " "
-    var firstName: String = " "
-    var gender: String = " "
-    var goal_q: Any = " "
-    var id: Int = -1
-      var  image: String = " "
-      var  is_contacted: Boolean = false
-      var lastName: String = " "
-      var  mobile: String = " "
-      var rating_count: Int = 0
-      var resume: String = ""
-    var skills: MutableList<Skill> = mutableListOf()
-    var status: String = ""
-      var title: String = " "
-      var userType: String = ""
-      var work_preference_q: Any = ""
-  }
-
-data class Certificate(
-    val certificate_completion_id: String,
-    val certificate_name: String,
-    val certificate_prof: Int,
-    val certificate_url: String,
-    val created_at: String,
-    val end_date: String,
-    val id: Int,
-    val image: String,
-    val profile_id: Int,
-    val start_date: String,
-    val updated_at: String,
-    val user_id: Int
-)
-
-data class Education(
-    val created_at: String,
-    val degree: String,
-    val description: String,
-    val end_date: String,
-    val fieldstudy: String,
-    val grade: String,
-    val id: Int,
-    val profile_id: Int,
-    val sch_uni: String,
-    val start_date: String,
-    val updated_at: String,
-    val user_id: Int
-)
-
-
-
-data class Skill(
-    val created_at: String,
-    val id: Int,
-    val profile_id: Int,
-    val skill_user: String,
-    val updated_at: String,
-    val user_id: Int
-)
-
-
- */
 
 
 

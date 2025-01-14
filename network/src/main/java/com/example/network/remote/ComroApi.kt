@@ -110,6 +110,8 @@ interface ComroApi {
 
     @POST("listExperience")
     suspend fun apiGetExperience(@Body jsonObject : JsonObject) :Response<JsonObject>
+    @POST("listEducation")
+    suspend fun apiGetEducation(@Body jsonObject : JsonObject) :Response<JsonObject>
     @POST("deleteExperience")
     suspend fun apiDeleteExperience(@Body jsonObject : JsonObject) :Response<JsonObject>
 
@@ -210,6 +212,9 @@ interface ComroApi {
     @POST("apiChoosePlan")
     suspend fun apiChoosePlan(@Body jsonObject : JsonObject) :Response<JsonObject>
 
+    @POST("apiOverview")
+    suspend fun apiAddOverview(@Body jsonObject : JsonObject) :Response<JsonObject>
+
     @Multipart
     @POST("apiResume")
     suspend fun apiResume(
@@ -217,6 +222,20 @@ interface ComroApi {
         @Part resume: MultipartBody.Part
     ) :Response<JsonObject>
 
+
+    @Multipart
+    @POST("apiLocation")
+    suspend fun apiAddLocation(
+        @Part("user_id") user_id: RequestBody,
+        @Part("streetaddress") streetaddress: RequestBody,
+        @Part("app_suite") app_suite: RequestBody,
+        @Part("city") city: RequestBody,
+        @Part("state") state: RequestBody,
+        @Part("zipcode") zipcode: RequestBody,
+        @Part("dateofbirth") dateofbirth: RequestBody,
+        @Part("professional_title") professional_title: RequestBody,
+        @Part image: MultipartBody.Part
+    ) :Response<JsonObject>
 
 
 

@@ -171,7 +171,7 @@
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:background="@null"
                     android:fontFamily="@font/lato"
-                    android:hint="@string/_10_12_24"
+                    android:hint="EX:-2024-11-25"
                     android:paddingVertical="@dimen/_8sdp"
                     android:textColor="#828282"
                     android:textSize="@dimen/_10ssp"

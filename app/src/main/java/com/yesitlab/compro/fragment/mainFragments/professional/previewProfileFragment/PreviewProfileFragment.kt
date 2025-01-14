@@ -23,14 +23,23 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.network.NetworkResult
+import com.example.network.apiModel.Education
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.ChipGroup
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
+import com.yesitlab.compro.BaseApplication
 import com.yesitlab.compro.Click
+import com.yesitlab.compro.LoadingUtils
 import com.yesitlab.compro.OnItemClickListener
 import com.yesitlab.compro.OnItemClickListener1
 import com.yesitlab.compro.R
@@ -41,18 +50,26 @@ import com.yesitlab.compro.adapter.ImageAdapter
 import com.yesitlab.compro.adapter.PortfolioAdapter
 import com.yesitlab.compro.adapter.SkillPreviewAdapter
 import com.yesitlab.compro.base.BottomSheetHelper
+import com.yesitlab.compro.base.CommonUtils
 import com.yesitlab.compro.base.ErrorMsgBox
 import com.yesitlab.compro.base.Path
 import com.yesitlab.compro.databinding.FragmentPreviewProfileBinding
+import com.yesitlab.compro.model.AddExperienceModel
 import com.yesitlab.compro.model.CertificatePreviewModel
 import com.yesitlab.compro.model.EducationPreviewModel
 import com.yesitlab.compro.model.ExperiencePreviewModel
 import com.yesitlab.compro.model.PortfolioModel
+import com.yesitlab.compro.viewmodel.ApiEducationViewModel
+import com.yesitlab.compro.viewmodel.ApiExperienceViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.io.File
 
+@AndroidEntryPoint
 class PreviewProfileFragment : Fragment(), OnItemClickListener, OnItemClickListener1,
     OnClickListener {
     lateinit var binding: FragmentPreviewProfileBinding
+    lateinit var  commonUtils: CommonUtils
     private var experiencePreviewAdapter: ExperiencePreviewAdapter? = null
     private var experiencePreviewList: MutableList<ExperiencePreviewModel> = mutableListOf()
     private var educationPreviewAdapter: EducationPreviewAdapter? = null
@@ -73,6 +90,8 @@ class PreviewProfileFragment : Fragment(), OnItemClickListener, OnItemClickListe
     private lateinit var imageAdapter: ImageAdapter
     private var imageUpload1 : ImageView? = null
     private var recyclerViewImages1 : RecyclerView? = null
+    private lateinit var viewModelExperience : ApiExperienceViewModel
+    private lateinit var viewModelEducation : ApiEducationViewModel
 
     private val selectedSkills: MutableList<String> = mutableListOf()
     private val skillsList = mutableListOf(
@@ -158,6 +177,10 @@ class PreviewProfileFragment : Fragment(), OnItemClickListener, OnItemClickListe
             container,
             false
         )
+        commonUtils = CommonUtils(requireContext())
+        viewModelExperience = ViewModelProvider(this)[ApiExperienceViewModel::class.java]
+        viewModelEducation = ViewModelProvider(this)[ApiEducationViewModel::class.java]
+
         return binding.root
     }
 
@@ -170,6 +193,7 @@ class PreviewProfileFragment : Fragment(), OnItemClickListener, OnItemClickListe
         binding.textSkipForNow.setOnClickListener(this)
         binding.textBackButton.setOnClickListener(this)
         // Access the included layout first
+        updateDetails()
         val includedLocationView = binding.includedLocationLayout
 
         // Then, find the views inside the included layout
@@ -183,6 +207,110 @@ class PreviewProfileFragment : Fragment(), OnItemClickListener, OnItemClickListe
         bottomSheetImageProfile = binding.profileImage
 
         adaptersInitialize()
+        if (BaseApplication.isOnline(requireContext())) {
+            lifecycleScope.launch {
+                apiGetExperience()
+            }
+        } else {
+            showErrorDialog("Please Check Your Network")
+        }
+
+
+
+    }
+    private fun showErrorDialog(message: String) {
+        ErrorMsgBox.alertError(context, message)
+    }
+
+
+    private suspend fun apiGetExperience() {
+        // var user_id : String = commonUtils.getUserId().toString()
+
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("user_id", commonUtils.getUserId().toString())
+
+
+        LoadingUtils.showDialog(requireContext(),true)
+
+        viewModelExperience.apiGetExperience(jsonObject){
+            when(it){
+                is NetworkResult.Success -> {
+                    LoadingUtils.hideDialog()
+
+
+                    val type = object : TypeToken<List<AddExperienceModel>>() {}.type
+                    val model: List<AddExperienceModel> = Gson().fromJson(it.data, type)
+
+                    // var model = Gson().fromJson<JsonObject>(it.data,AddExperienceModel::class.java)
+
+                    experiencePreviewAdapter?.updateItem(model)
+
+                    //   LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
+                }
+                is NetworkResult.Error -> {
+                    LoadingUtils.hideDialog()
+
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+                }
+                is NetworkResult.Loading -> TODO()
+
+            }
+        }
+
+
+    }
+    private suspend fun apiGetEducation() {
+        // var user_id : String = commonUtils.getUserId().toString()
+
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("user_id", commonUtils.getUserId().toString())
+
+
+        LoadingUtils.showDialog(requireContext(),true)
+
+        viewModelEducation.apiGetEducation(jsonObject){
+            when(it){
+                is NetworkResult.Success -> {
+                    LoadingUtils.hideDialog()
+
+
+                    val type = object : TypeToken<MutableList<Education>>() {}.type
+                    val model: MutableList<Education> = Gson().fromJson(it.data, type)
+
+                    // var model = Gson().fromJson<JsonObject>(it.data,AddExperienceModel::class.java)
+
+                    educationPreviewAdapter?.updateItem(model)
+
+                    //   LoadingUtils.showSuccessDialog(requireContext(),"Experience details get successfully")
+                }
+                is NetworkResult.Error -> {
+                    LoadingUtils.hideDialog()
+
+                    LoadingUtils.showErrorDialog(requireContext(),it.message.toString())
+
+                }
+                is NetworkResult.Loading -> TODO()
+
+            }
+        }
+
+
+    }
+
+  fun   updateDetails(){
+      if (!commonUtils.getUserName().equals("")){
+          binding.textProfileName.text =   commonUtils.getUserName()
+      }
+      if (!commonUtils.getUserEmail().equals("")){
+          binding.textProfileEmail.text =   commonUtils.getUserEmail()
+      }
+      if (!commonUtils.getUserCountry().equals("")){
+          binding.profileLocation.text =   commonUtils.getUserCountry()
+      }
+      if (!commonUtils.getUserPhoneNumber().equals("")){
+          binding.textProfilePhone.text =   commonUtils.getUserPhoneNumber()
+      }
 
 
     }
@@ -191,8 +319,8 @@ class PreviewProfileFragment : Fragment(), OnItemClickListener, OnItemClickListe
         // experience
         experiencePreviewAdapter = ExperiencePreviewAdapter(requireContext(), mutableListOf(), this,true)
         binding.recyclerViewExperience.setAdapter(experiencePreviewAdapter)
-        experiencePreview()
-        experiencePreviewAdapter!!.updateItem(experiencePreviewList)
+//        experiencePreview()
+//        experiencePreviewAdapter!!.updateItem(experiencePreviewList)
 
         // education
 //        educationPreviewAdapter = EducationPreviewAdapter(requireContext(), mutableListOf(), this,true)

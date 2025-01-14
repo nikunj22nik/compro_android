@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.yesitlab.compro.OnItemClickListener1
 import com.yesitlab.compro.databinding.LayoutProfessionalExperienceBinding
+import com.yesitlab.compro.model.AddExperienceModel
 import com.yesitlab.compro.model.ExperiencePreviewModel
 
 class ExperiencePreviewAdapter(
     var context: Context,
-    var list: MutableList<ExperiencePreviewModel>,
+    var list: List<AddExperienceModel>,
     var listner: OnItemClickListener1,
     var showEditIcon: Boolean
 ) : RecyclerView.Adapter<ExperiencePreviewAdapter.ExperienceViewHolder>() {
@@ -34,12 +35,12 @@ class ExperiencePreviewAdapter(
     override fun onBindViewHolder(holder: ExperienceViewHolder, position: Int) {
         val currentItem = list[position]
 
-        holder.binding.textCompanyName.text = currentItem.textCompanyName
-        holder.binding.textLocationName.text = currentItem.textLocationName
-        holder.binding.textJobTitleValue.text = currentItem.textJobTitleValue
-        holder.binding.textStartDateValue.text = currentItem.textStartDateValue
-        holder.binding.textEndDateValue.text = currentItem.textEndDateValue
-        holder.binding.textCountryValue.text = currentItem.textCountryValue
+        holder.binding.textCompanyName.text = currentItem.company
+        holder.binding.textLocationName.text = currentItem.location
+        holder.binding.textJobTitleValue.text = currentItem.title
+        holder.binding.textStartDateValue.text = currentItem.start_date
+        holder.binding.textEndDateValue.text = currentItem.end_date
+        holder.binding.textCountryValue.text = currentItem.country
         if (showEditIcon) {
             holder.binding.imageExperienceEdit.visibility = View.VISIBLE
         } else {
@@ -52,7 +53,7 @@ class ExperiencePreviewAdapter(
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateItem(newData : MutableList<ExperiencePreviewModel>){
+    fun updateItem(newData : List<AddExperienceModel>){
         this.list = newData
         notifyDataSetChanged()
     }
