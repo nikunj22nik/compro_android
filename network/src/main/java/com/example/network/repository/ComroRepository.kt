@@ -2,6 +2,7 @@ package com.example.network.repository
 
 import com.example.network.NetworkResult
 import com.example.network.apiModel.HomeResponse
+import com.example.network.apiModel.UserInfo
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -27,7 +28,7 @@ interface ComroRepository {
     suspend fun apiLogin(
         email :String,
         password :String,
-        successCallback: (response: NetworkResult<Pair<String,Int>>) -> Unit
+        successCallback: (response: NetworkResult<UserInfo>) -> Unit
     )
 
     suspend fun apiForgotPasswordSendRequest(
@@ -110,7 +111,6 @@ interface ComroRepository {
     suspend fun apiUpdateEducation(
         id :String,
         user_id :String,
-        profile_id :String,
         school :String,
         degree :String,
         fieldstudy: String,

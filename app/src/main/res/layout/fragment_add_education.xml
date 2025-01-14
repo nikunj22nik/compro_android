@@ -102,13 +102,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEducation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/textBackButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_max="@dimen/_350sdp"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@id/imageAddEducation"
         tools:listitem="@layout/layout_education" />
 

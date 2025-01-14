@@ -146,8 +146,6 @@ interface ComroApi {
         @Field("description") description :String
     ) :Response<JsonObject>
 
-    @POST("listEducation")
-    suspend fun apiGetEducation(@Body jsonObject: JsonObject) : Response<JsonObject>
 
     @POST("deleteEducation")
     suspend fun apiDeleteEducation(@Body jsonObject: JsonObject) : Response<JsonObject>
